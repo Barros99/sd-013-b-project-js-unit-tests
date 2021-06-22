@@ -105,3 +105,5 @@ assert.deepStrictEqual(
   { cachorro: 'chub' },
   createMenu({ cachorro: 'chub' }).fetchMenu()
 );
+
+assert.deepStrictEqual(createMenu({ energetic: 'monster' }).consumption, []);
