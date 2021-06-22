@@ -16,8 +16,6 @@
       #VQV!'
 */
 
-const assert = require('assert');
-
 const vqv = (nome, idade) => {
   if (typeof (nome) !== 'string' || typeof (idade) !== 'number') {
     return undefined;
