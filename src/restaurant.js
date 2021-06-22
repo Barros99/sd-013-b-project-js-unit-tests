@@ -57,108 +57,51 @@
 
 //------------------------------------------------------------------------------------------
 
-// PASSO 3: Crie uma função, separada da função `createMenu()`, que, dada uma string recebida por parâmetro, 
+// PASSO 3: Crie uma função, separada da função `createMenu()`, que, dada uma string recebida por parâmetro,
 // adiciona essa string ao array de `objetoRetornado.consumption`. Adicione essa função à chave `order`.
-// DICA: para criar isso, você pode: 
+// DICA: para criar isso, você pode:
 // - Definir a função `createMenu()`
-// - Definir o objeto que a `createMenu()` retorna, mas separadamente 
+// - Definir o objeto que a `createMenu()` retorna, mas separadamente
 // - E, depois, definir a função que será atribuída a `order`.
 // ```
 // const restaurant = {}
 //
 // const createMenu = (myMenu) => // Lógica que edita o objeto `restaurant`
 //
-// const orderFromMenu = (request) => // Lógica que adiciona à chave `consumption` de `restaurant` a string recebida no parâmetro `request`. 
+// const orderFromMenu = (request) => // Lógica que adiciona à chave `consumption` de `restaurant` a string recebida no parâmetro `request`.
 // // Essa função deve ser associada à chave `order` de `restaurant`
 // ```
 // Agora faça o TESTE 6 no arquivo `tests/restaurant.spec.js`.
 
 //------------------------------------------------------------------------------------------
 
-// PASSO 4: Adicione ao objeto retornado por `createMenu()` uma chave `pay` com uma função que varre todo os itens de `objetoRetornado.consumption`, 
-// soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
+// PASSO 4: Adicione ao objeto retornado por `createMenu()` uma chave `pay` com uma função que varre todo os itens de `objetoRetornado.consumption`,
+// soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso,
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
-
-const createMenu = (arg) => {
+function createMenu(arg) {
   const obj = {
     fetchMenu: () => arg,
-    order: (meal) => {
-        obj.consumption.push(meal);
-    },
-    pay: () => {},
-    consumption: [],
   };
+
   return obj;
-};
+}
 
 module.exports = createMenu;
 
+//////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+
 const assert = require('assert');
 
-// 1
-assert.strictEqual(typeof createMenu().fetchMenu === 'function', true);
+assert.strictEqual(typeof createMenu().fetchMenu, 'function');
 
-// 2
-assert.deepStrictEqual(createMenu({food: {}, drink: {}}).fetchMenu(), { food: {}, drink: {} });
+assert.deepStrictEqual(
+  { food: {}, drink: {} },
+  createMenu({ food: {}, drink: {} }).fetchMenu()
+);
 
-// 3
-assert.strictEqual(55, createMenu(55).fetchMenu());
-
-// 5
-assert.deepStrictEqual(createMenu().consumption, []);
-
-// 7
-const menu = {
-  food: {
-    arroz: 5,
-    feijao: 5,
-    baiao: 8,
-    coxinha: 7,
-    batata: 6,
-    camarao: 12,
-  },
-  drink: {
-    agua: 2,
-    coca: 3,
-    suco: 4,
-    cachaca: 1,
-    cerveja: 2,
-    vodka: 5,
-  },
-};
-
-const obj = createMenu(menu);
-let consumptionLength = obj.consumption.length;
-const [arroz, feijao, baiao, coxinha, batata, camarao] = Object.keys(obj.fetchMenu().food);
-const [agua, coca, suco, cachaca, cerveja, vodka] = Object.keys(obj.fetchMenu().drink);
-const foods = obj.fetchMenu().food;
-const drinks = obj.fetchMenu().drink;
-
-const checkOrder = (meal) => {
-  obj.order(meal);
-  consumptionLength = obj.consumption.length;
-  return obj;
-};
-
-assert.strictEqual(checkOrder(coxinha).consumption[consumptionLength - 1], coxinha);
-console.log(obj.consumption);
-// 9 
-function check3(a, b, c) {
-  checkOrder(a);
-  checkOrder(b);
-  checkOrder(c);
-  return obj;
-}
-
-assert.deepStrictEqual(check3('cachaça', 'amendoim', 'coca').consumption.slice(-3), ['cachaça', 'amendoim', 'coca']);
-
-// 10
-function check2(a, b) {
-  checkOrder(a);
-  checkOrder(b);
-  return obj;
-}
-
-assert.deepStrictEqual(check2('laranja', 'laranja').consumption.filter(x => x === 'laranja').length, 2);
-
-// 12
+assert.deepStrictEqual(
+  { cachorro: 'chub' },
+  createMenu({ cachorro: 'chub' }).fetchMenu()
+);

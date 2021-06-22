@@ -40,10 +40,3 @@ const productDetails = (firstProduct, secondProduct) => [
 ];
 
 module.exports = productDetails;
-
-const assert = require('assert');
-
-const letra = 'ultimas';
-console.log(letra.slice(-3));
-
-console.log(productDetails('alc','mask')[0].details.productId.slice(-3) && productDetails('alc','mask')[1].details.productId.slice(-3) === '123');
