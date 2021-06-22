@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 
-const numbers = require("./numbers");
+const numbers = require('./numbers');
 
 /*
   Use template literals para escrever uma função que,
@@ -28,5 +28,4 @@ trabalho na Trybe e mando muito em programação!
 #VQV!`;
   return phrase;
 };
-console.log(vqv('Tunico,', 30));
 module.exports = vqv;
