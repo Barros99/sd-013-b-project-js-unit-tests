@@ -14,6 +14,15 @@
 
 const average = () => {
   // adicione a implementação aqui
+  for (let index = 0; index < average.length; index += 1) {
+    let inputValues = average[index];
+    let soma = 0;
+    soma += (average[index]);
+    let media = soma / average.length;
+  }
+  if (typeof (average) !== 'number' || average === '') {
+    return undefined;
+  }
 };
 
 module.exports = average;
