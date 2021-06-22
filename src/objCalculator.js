@@ -19,6 +19,15 @@
   calculator.div(3, 2) // Retorno: 1;
 */
 
-const calculator = {};
+const calculator = {
+  // eslint-disable-next-line no-undef
+  add: addFunction = (num1, num2) => num1 + num2,
+  // eslint-disable-next-line no-undef
+  mult: multFunction = (num1, num2) => num1 * num2,
+  // eslint-disable-next-line no-undef
+  div: divFunction = (num1, num2) => num1 / num2,
+  // eslint-disable-next-line no-undef
+  sub: subFunction = (num1, num2) => num1 - num2,
+};
 
 module.exports = calculator;
