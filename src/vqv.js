@@ -17,11 +17,17 @@
 */
 
 const vqv = (nome, idade) => {
-  // let str = `Oi, meu nome é ${nome}!`;
-  // + `Tenho ${idade} anos,\n`
-  // + 'trabalho na Trybe e mando muito em programação!\n'
-  // + '#VQV!';
+  if (nome && idade !== undefined) {
+    let message = `Oi, meu nome é ${nome}!\n`
+    + `Tenho ${idade} anos,\n`
+    + 'trabalho na Trybe e mando muito em programação!\n'
+    + '#VQV!';
 
+    return message;
+  }
+  return undefined;
 };
+
+console.log(vqv());
 
 module.exports = vqv;
