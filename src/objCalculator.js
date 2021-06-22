@@ -25,7 +25,7 @@ const calculator = {
   // eslint-disable-next-line no-undef
   mult: multFunction = (num1, num2) => num1 * num2,
   // eslint-disable-next-line no-undef
-  div: divFunction = (num1, num2) => num1 / num2,
+  div: divFunction = (num1, num2) => Math.trunc(num1 / num2),
   // eslint-disable-next-line no-undef
   sub: subFunction = (num1, num2) => num1 - num2,
 };
