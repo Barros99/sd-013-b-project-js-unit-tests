@@ -1,1 +1,0 @@
-console.log('Oi, meu nome é Alberto!\n' + 'Tenho 30 anos,\n')
