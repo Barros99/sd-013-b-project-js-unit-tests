@@ -11,18 +11,13 @@
     - average([1, 1]) // Retorno: 1;
     - average([1, '2']) // Retorno: undefined;
 */
-
 const average = (array) => {
   let output = 0;
-  let dividir = array.length;
-
   if (array.length !== 0) {
-    for(let i = 0; i < array.length; i += 1) {
-      if(typeof array[i] !== typeof output) return undefined;
-      else output += array[i];
-    }
-  return Math.round(output / dividir)
+for (let i = 0; i < array.length; i += 1) {
+      if (typeof array[i] !== typeof output) return undefined;
+      output += array[i];
+    } return Math.round(output / array.length);
   }
 };
-console.log(average([2, 4, 5]))
 module.exports = average;
