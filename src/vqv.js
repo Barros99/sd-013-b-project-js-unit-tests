@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 
-const numbers = require("./numbers");
+const numbers = require('./numbers');
 
 /*
   Use template literals para escrever uma função que,
