@@ -10,9 +10,13 @@
     - average([2, 2]) // Retorno: 2;
     - average([1, 1]) // Retorno: 1;
     - average([1, '2']) // Retorno: undefined;
-    pedroSehn
+    pedroSehns
 */
 
-const average = () => {};
+const average = (array) => {
+  for (let i in array) {
+    array[i].typeOf ==!
+  }
+};
 
 module.exports = average;
