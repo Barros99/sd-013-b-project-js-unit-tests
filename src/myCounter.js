@@ -14,34 +14,14 @@
   Comportamento:
   myCounter() // Retorna: [0, 2, 3, 1, 2, 3, 2, 2, 3, 3, 2, 3];
 */
-var myArray = [];
-
-function for1() {
-  for (var counter = 1; counter <= 3; counter += 1) {
-    myArray.push(counter);
-  } for (var counter = 2; counter <= 2; counter += 1) {
-    myArray.push(counter);
-    myArray.push(counter);
-  }
-}
-
-function for2() {
-  for (var counter = 3; counter <= 3; counter += 1) {
-    myArray.push(counter);
-    myArray.push(counter);
-  } for (var counter = 2; counter <= 3; counter += 1) {
-    myArray.push(counter);
-  }
-}
 
 const myCounter = () => {
+  let myArray = [];
   for (var counter = 0; counter <= 3; counter += 1) {
     myArray.push(counter);
-    for (var counter = 2; counter <= 3; counter += 1) {
-      myArray.push(counter);
+    for (var counter2 = 2; counter2 <= 3; counter2 += 1) {
+      myArray.push(counter2);
     }
-    for1();
-    for2();
   }
   return myArray;
 };
