@@ -79,16 +79,6 @@
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso,
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-function comparaPreços(objeto, array) {
-  for (let index = 0; index < array.length; index += 1) {
-    for (let keys in preços) {
-      if (keys === orders[index]) {
-        sum += preços[keys];
-      }
-    }
-  }
-}
-
 const createMenu = (objeto) => ({
   fetchMenu: () => objeto,
   consumption: [],
