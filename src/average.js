@@ -19,14 +19,11 @@ const average = (array) => {
     return undefined;
   }
   for (let index = 0; index < array.length; index += 1) {
-    if (typeof array[index] !== 'number') {
-      result = undefined;
-      console.log(typeof(array[index]));
-      return result;
-    } else {
+    if (typeof array[index] === 'number') {
       sum += Math.round(array[index]);
       result = Math.round(sum / array.length);
-    }
+    } 
+    return undefined;
   }
   return result;
 };
