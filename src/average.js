@@ -14,9 +14,24 @@
 */
 
 const average = (array) => {
-  for (let i in array) {
-    array[i].typeOf ==!
+  let media = 0;
+  if (array.length === 0) {
+    return undefined;
   }
+
+  for (let i = 0; i < array.length; i += 1) {
+   if (typeof array[i] !== 'number') {
+    console.log('entrou'); 
+    return undefined;
+    }
+      media += array[i];
+  }
+
+  media /= array.length;
+  return Math.round(media);
 };
 
+let arrei = [];
+average(arrei);
+console.log(arrei.length);
 module.exports = average;
