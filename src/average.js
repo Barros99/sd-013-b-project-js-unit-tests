@@ -16,9 +16,11 @@
 const average = (array) => {
   let soma = 0;
   let media = 0;
-  let totalNumerosArray = 0;
-  
-  totalNumerosArray = array.length;
+  let totalNumerosArray = array.length;
+
+  if (totalNumerosArray === 0) {
+    return undefined;
+  }
 
   for (let index = 0; index < array.length; index += 1) {
     if ((typeof(array[index]) !== typeof(4))) {
