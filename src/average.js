@@ -12,6 +12,24 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {};
+  // Busquei um método para avaliar todos os ítems de um array e achei o prototype every().
+  // Outro médodo encontrado foi Math.round para arredondar valores.
+
+const average = (arr) => {
+let arrSum = 0;
+const arrTypeIsNumber = (arrIndex) => typeof arrIndex === 'number'; // verifica o tipo 'number'.
+
+if (arr.every(arrTypeIsNumber) && arr.length > 0) {
+  for (let index = 0; index < arr.length; index += 1) {
+    arrSum += arr[index];       
+  }
+  let arrAverage = Math.round(arrSum / (arr.length));
+  return arrAverage;
+  }
+  return undefined;
+};
+
+/* console.log(average([2, 4, 6, 7, 8]));
+console.log(average([2, '4', 6, 7, 8])); */
 
 module.exports = average;
