@@ -12,6 +12,38 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {};
+const isValid = (array) => {
+  let control = true;
+  if (array.length === 0) {
+    control = false;
+  } 
+  return control;
+};
+
+const isNumber = (array) => {
+  let control = true;
+  for (let index = 0; index < array.length; index += 1) {
+    if (typeof (array[index]) !== 'number') {
+      control = false;
+      break;
+    }
+  }
+  return control;
+};
+
+const average = (value) => {
+  let cont = value.length;
+  let control = 0;
+  let valida = isValid(value);
+  let number = isNumber(value);
+  for (let index = 0; index < value.length; index += 1) {
+    control += value[index];
+  }
+  let result = Math.round(control / cont);
+  if (valida === false || number === false) {
+    result = undefined;
+  }
+  return result;
+};
 
 module.exports = average;
