@@ -23,15 +23,46 @@ const circle = require('../src/circle');
   OBS: Lembre-se que você não precisa se preocupar com o describe e o it por enquanto, isso será aprendido posteriormente.
 */
 
+const test1 = typeof circle(5); 
+const test2 = Object.entries(circle(10)).length;
+const test3 = circle();
+const test4 = circle(2).circumference; 
+const test5 = parseFloat(circle(3).area.toPrecision(4));
+const test6 = [parseFloat(Object.values(circle(3))[1].toPrecision(4)), 
+              parseFloat(Object.values(circle(3))[2].toPrecision(4))];
+
+const expected1 = 'object';
+const expected2 = 3;
+const expected3 = undefined;
+const expected4 = 12.56;
+const expected5 = 28.26;
+const expected6 = [28.26,18.84]
+
 describe('4 - Implemente os casos de teste para a função `circle`', () => {
   it('Verifica se ao receber um raio, a função `circle` retorna um objeto contedos os valores esperados', () => {
-    assert.fail();
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste se circle retorna um objeto.
+
+    assert.deepStrictEqual(test1, expected1);
+
     // Teste se o objeto retornado tem 3 entradas.
+
+    assert.deepStrictEqual(test2, expected2);
+
     // Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
+
+    assert.deepStrictEqual(test3, expected3);
+
     // Teste que a função retorna, dentro de um objeto, a circunferência correta para um círculo de raio 2.
+
+    assert.deepStrictEqual(test4, expected4);
+
     // Teste que a função retorna, dentro de um objeto, a área correta para um círculo de raio 3.
+
+    assert.deepStrictEqual(test5, expected5);
+
     // Teste que a função retorna, num objeto, os dados corretos de um círculo de raio 3.
+
+    assert.deepStrictEqual(test6, expected6);
   });
 });
