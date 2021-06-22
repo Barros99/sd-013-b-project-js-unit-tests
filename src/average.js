@@ -12,6 +12,24 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = (array) => {};
+let averageCalc = (array) => {
+  let mean = 0;
+  for (let index of array) {
+    if (typeof (index) === 'string') {
+      return undefined;
+    }
+    mean += index;
+  }
+  mean = Math.round(mean / array.length);
+  return mean;
+};
+
+const average = (array) => {
+  // Este código foi retirado daqui: https://www.quora.com/How-do-you-check-if-an-array-is-empty-in-JavaScript
+  if (array && array.length) {
+    return averageCalc(array);
+  } 
+    return undefined;
+};
 
 module.exports = average;
