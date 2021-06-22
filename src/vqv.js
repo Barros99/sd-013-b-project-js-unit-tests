@@ -16,6 +16,8 @@
       #VQV!'
 */
 
-const vqv = (nome, idade) => {};
+const vqv = (nome, idade) => {
+  let frase = `Oi, meu nome é ${nome}! Tenho ${idade} anos,`;
+};
 
 module.exports = vqv;
