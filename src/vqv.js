@@ -19,10 +19,10 @@
 const vqv = (nome, idade) => {
   let frase;
   if (nome != null || idade != null) {
-    frase = `Oi, meu nome é ${nome}!\n`+
-    `Tenho ${idade} anos,\n`+
-    `trabalho na Trybe e mando muito em programação!\n`+
-    `#VQV!`;
+    frase = `Oi, meu nome é ${nome}!\n`
+    + `Tenho ${idade} anos,\n`
+    + 'trabalho na Trybe e mando muito em programação!\n'
+    + '#VQV!';
     return frase;
   }
   return undefined;
