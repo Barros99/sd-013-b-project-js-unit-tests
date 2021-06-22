@@ -23,11 +23,10 @@ const average = (array) => {
   }
 
   for (let index = 0; index < array.length; index += 1) {
-    if ((typeof(array[index]) !== typeof(4))) {
+    if (typeof(array[index]) !== 'number') {
       return undefined;      
-    } else {
-      soma += array[index];
     }
+    soma += array[index];    
   }
   media = soma / totalNumerosArray;
   return Math.round(media);
