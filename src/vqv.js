@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 
+const numbers = require("./numbers");
+
 /*
   Use template literals para escrever uma função que,
   recebe seu nome e sua idade e retorna o parágrafo descrito abaixo.
@@ -16,6 +18,15 @@
       #VQV!'
 */
 
-const vqv = (nome, idade) => {};
+const vqv = (nome, idade) => {
+  if (typeof nome === 'string' && typeof idade === 'number') {
+    return (
+`Oi, meu nome é ${nome}!
+Tenho ${idade} anos,
+trabalho na Trybe e mando muito em programação!
+#VQV!`);
+  }
+  return undefined;
+};
 
 module.exports = vqv;
