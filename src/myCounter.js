@@ -25,5 +25,5 @@ const myCounter = () => {
   }
   return myArray;
 };
-
+// faça os testes
 module.exports = myCounter;
