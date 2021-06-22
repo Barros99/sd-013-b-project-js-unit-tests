@@ -14,17 +14,27 @@
 
 const average = (array) => {
   let somatoria = 0;
-  if (array.length > 0) {
-    for (let index = 0; index < array.length; index += 1) {
-      if (typeof (array[index]) === 'number') {
-        somatoria += array[index];
-      } else {
-        return undefined;
-      }
-    }
-  } else {
+  if (array.length === 0) {
     return undefined;
   }
+  for (let index = 0; index < array.length; index += 1) {
+    if (typeof array[index] === 'number') {
+      somatoria += array[index];
+    } else {
+      return undefined;
+    }
+  }
+  // if (array.length > 0) {
+  //   for (let index = 0; index < array.length; index += 1) {
+  //     if (typeof (array[index]) === 'number') {
+  //       somatoria += array[index];
+  //     } else {
+  //       return undefined;
+  //     }
+  //   }
+  // } else {
+  //   return undefined;
+  // }
   let media = somatoria / array.length;
   return Math.round(media);
 };
