@@ -17,7 +17,19 @@ const average = (array) => {
   for (let index = 0; index < array.length; index += 1) {
     sum += array[index];
   }
+
   let averageValue = sum / array.length;
+  averageValue = Math.round(averageValue);
+
+  for (let index = 0; index < array.length; index += 1) {
+    if (typeof array[index] !== 'number') {
+      averageValue = undefined;
+    }
+  }
+  if (array.length === 0) {
+    averageValue = undefined;
+  }
+
   return averageValue;
 };
 
