@@ -20,18 +20,17 @@ function validateArray(param) {
   let sum = 0;
   for (let index = 0; index < param.length; index += 1) {
     if (typeof param[index] !== 'number') {
-      return 'undefined';
+      return undefined;
     }
     sum += param[index];
   }
-  return param.length !== 0 ? Math.round(sum / param.length) : 'undefined';
+  return param.length !== 0 ? Math.round(sum / param.length) : undefined;
 }
 
 const average = (param) => {
   if (verifyArray(param)) {
-    validateArray(param);
+    return validateArray(param);
   }
 };
-// validateArray([5, 3, 4, 99]);
 
 module.exports = average;
