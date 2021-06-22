@@ -16,6 +16,17 @@
       #VQV!'
 */
 
-const vqv = (nome, idade) => {};
+// me ajudou a pensar em como descobrir se a função foi chamada sem parâmetros https://stackoverflow.com/questions/13019640/how-to-test-if-a-parameter-is-provided-to-a-function
+
+const vqv = (nome, idade) => {
+  if (nome === undefined || idade === undefined) return undefined;
+
+  return `Oi, meu nome é ${nome}!
+Tenho ${idade} anos,
+trabalho na Trybe e mando muito em programação!
+#VQV!`;  
+};
+
+console.log(vqv());
 
 module.exports = vqv;
