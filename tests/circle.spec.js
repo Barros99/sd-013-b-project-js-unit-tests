@@ -40,3 +40,4 @@ describe('4 - Implemente os casos de teste para a função `circle`', () => {
     assert.deepStrictEqual(Object.values(circle(3)), [3, 28.259999999999998, 18.84 ])
   });
 });
+
