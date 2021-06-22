@@ -12,12 +12,11 @@
     - average([1, '2']) // Retorno: undefined;
 */
 const assert = require('assert');
-
 const average = (array) => {
   
-  if(array != 'number' || array != []){
+    if(array !== 'number' || array !== []) {
     return undefined
-  }
+    }
 
   for(let index = 0; index <= array.length; index += 1){
     elementoArray = array[index]
