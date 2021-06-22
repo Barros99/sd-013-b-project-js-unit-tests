@@ -14,19 +14,19 @@
 
 const average = (array) => {
   let result = 0;
-  if (Array.isArray(array) === true && array.length !== 0) {
-   for (let index = 0; index < array.length; index += 1) {
-    if (typeof array[index] === 'number') {
-      result += array[index];
-    } else {
-      return undefined;
-    }
-   }
-   return Math.round(result / array.length);
+  if (array.length === 0) {
+    return undefined;
   }
- return undefined;
-};
-let teste = average([1, 1]);
-console.log(teste);
+
+//   if (Array.isArray(array) === true && array.length !== 0) { //se ela recebe vazio !
+    for (let index = 0; index < array.length; index += 1) {
+       if (typeof array[index] === 'number') {
+         result += array[index];
+       } else {
+         return undefined;
+       }
+      }
+      return Math.round(result / array.length);
+   };
 
 module.exports = average;
