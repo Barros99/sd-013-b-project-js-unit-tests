@@ -22,8 +22,8 @@ const average = (array) => {
     sum += array[index];
     arrayCopy.push(array[index]);
   }
-  if (arrayCopy.length === array.length) {
-    return Math.floor(sum / array.length);
+  if (arrayCopy.length === array.length && array.length !== 0) {
+    return Math.round(sum / array.length);
   }
 };
 
