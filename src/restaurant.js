@@ -49,9 +49,9 @@
 const createMenu = (obj) => (
   {
     fetchMenu: () => obj,
+    consumption: [],
   }
 );
-
 // Agora faça o TESTE 4 no arquivo `tests/restaurant.spec.js`.
 
 //------------------------------------------------------------------------------------------
