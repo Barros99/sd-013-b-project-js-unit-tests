@@ -14,24 +14,30 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-function verifyArrayLength (arrayGiven) {
+function verifyArrayLength(arrayGiven) {
   if (arrayGiven.length < 1) {
     return false;
   }
   return true;
 }
 
-const average = (arrayGiven) => {
-  if (verifyArrayLength(arrayGiven)) {
-    let sum = 0;
-    for (value of arrayGiven) {
-      if (typeof(value) !== 'number') {
-        return undefined;
-      }
-      sum+=value;
+function verifyArrayValues(arrayGiven) {
+  for (let value of arrayGiven) {
+    if (typeof (value) !== 'number') {
+      return false;
     }
-    const arrayAverage = sum/arrayGiven.length;
-    return(Math.round(arrayAverage));
+  }
+  return true;
+}
+
+const average = (arrayGiven) => {
+  if (verifyArrayLength(arrayGiven) && verifyArrayValues(arrayGiven)) {
+    let sum = 0;
+    for (let value of arrayGiven) {
+      sum += value;
+    }
+    const arrayAverage = sum / arrayGiven.length;
+    return (Math.round(arrayAverage));
   }
   return undefined;
 };
