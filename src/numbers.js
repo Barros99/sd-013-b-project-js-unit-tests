@@ -1,3 +1,4 @@
+const assert = require('assert');
 /*
   A função numbers recebe um array (tamanho variável),
   retornando true se todos os parâmetros forem do tipo 'number' e false caso contrário.
@@ -19,3 +20,7 @@ const numbers = (myArray) => {
 };
 
 module.exports = numbers;
+
+assert.deepStrictEqual(numbers([1, 2, 3, 4, 5]), true);
+assert.deepStrictEqual(numbers([1, 2, 'a']), false);
+assert.deepStrictEqual(numbers([]), true);
