@@ -18,20 +18,18 @@ function verifyArray(param) {
 
 function validateArray(param) {
   let sum = 0;
-  console.log(typeof param.length);
   for (let index = 0; index < param.length; index += 1) {
-    if (typeof param[index] !== 'number' || param.length === 0) {
+    if (typeof param[index] !== 'number') {
       return 'undefined';
     }
     sum += param[index];
   }
-  return Math.round(sum / param.length);
+  return param.length !== 0 ? Math.round(sum / param.length) : 'undefined';
 }
-console.log(validateArray([]));
 
 const average = (param) => {
   if (verifyArray(param)) {
-    return validateArray(param);
+    validateArray(param);
   }
 };
 // validateArray([5, 3, 4, 99]);
