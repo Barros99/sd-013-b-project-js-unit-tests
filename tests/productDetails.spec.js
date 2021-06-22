@@ -40,6 +40,7 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     // Teste que os dois objetos são diferentes entre si.
     assert.notDeepStrictEqual(productDetails('Alcool', 'Máscara'), true);
     // Teste que os dois productIds terminam com 123.
+    // Tópico que me ajudou nessa questão (var.slice) https://stackoverflow.com/questions/5873810/how-can-i-get-last-characters-of-a-string
     const productId1 = (productDetails('Alcool', 'Máscara')[0].details.productId);
     const productId2 = (productDetails('Alcool', 'Máscara')[1].details.productId);
     assert.deepStrictEqual(productId1.slice(productId1.length - 3) === productId2.slice(productId2.length - 3), true);
