@@ -23,7 +23,7 @@ const myCounter = () => {
       myArray.push(i);
     }
   }
-  return console.log(myArray);
+  return myArray;
 };
 myCounter();
 
