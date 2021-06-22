@@ -79,6 +79,86 @@
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-const createMenu = () => {};
+const createMenu = (arg) => {
+  const obj = {
+    fetchMenu: () => arg,
+    order: (meal) => {
+        obj.consumption.push(meal);
+    },
+    pay: () => {},
+    consumption: [],
+  };
+  return obj;
+};
 
 module.exports = createMenu;
+
+const assert = require('assert');
+
+// 1
+assert.strictEqual(typeof createMenu().fetchMenu === 'function', true);
+
+// 2
+assert.deepStrictEqual(createMenu({food: {}, drink: {}}).fetchMenu(), { food: {}, drink: {} });
+
+// 3
+assert.strictEqual(55, createMenu(55).fetchMenu());
+
+// 5
+assert.deepStrictEqual(createMenu().consumption, []);
+
+// 7
+const menu = {
+  food: {
+    arroz: 5,
+    feijao: 5,
+    baiao: 8,
+    coxinha: 7,
+    batata: 6,
+    camarao: 12,
+  },
+  drink: {
+    agua: 2,
+    coca: 3,
+    suco: 4,
+    cachaca: 1,
+    cerveja: 2,
+    vodka: 5,
+  },
+};
+
+const obj = createMenu(menu);
+let consumptionLength = obj.consumption.length;
+const [arroz, feijao, baiao, coxinha, batata, camarao] = Object.keys(obj.fetchMenu().food);
+const [agua, coca, suco, cachaca, cerveja, vodka] = Object.keys(obj.fetchMenu().drink);
+const foods = obj.fetchMenu().food;
+const drinks = obj.fetchMenu().drink;
+
+const checkOrder = (meal) => {
+  obj.order(meal);
+  consumptionLength = obj.consumption.length;
+  return obj;
+};
+
+assert.strictEqual(checkOrder(coxinha).consumption[consumptionLength - 1], coxinha);
+console.log(obj.consumption);
+// 9 
+function check3(a, b, c) {
+  checkOrder(a);
+  checkOrder(b);
+  checkOrder(c);
+  return obj;
+}
+
+assert.deepStrictEqual(check3('cachaça', 'amendoim', 'coca').consumption.slice(-3), ['cachaça', 'amendoim', 'coca']);
+
+// 10
+function check2(a, b) {
+  checkOrder(a);
+  checkOrder(b);
+  return obj;
+}
+
+assert.deepStrictEqual(check2('laranja', 'laranja').consumption.filter(x => x === 'laranja').length, 2);
+
+// 12
