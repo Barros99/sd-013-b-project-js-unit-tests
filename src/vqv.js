@@ -17,10 +17,10 @@
 */
 
 const vqv = (nome, idade) => {
-  let str = `Oi, meu nome é ${nome}!`;
-  + `Tenho ${idade} anos,\n`
-  + 'trabalho na Trybe e mando muito em programação!\n'
-  + '#VQV!';
+  // let str = `Oi, meu nome é ${nome}!`;
+  // + `Tenho ${idade} anos,\n`
+  // + 'trabalho na Trybe e mando muito em programação!\n'
+  // + '#VQV!';
 
 };
 
