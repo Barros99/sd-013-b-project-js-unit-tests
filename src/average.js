@@ -27,5 +27,5 @@ const average = (myArray) => {
   averageOfArray = sumOfElementsOfArray / myArray.length;
   return Math.round(averageOfArray);
 };
-console.log(average([0,0,0,0,0,0,0,0,0,1]));
+
 module.exports = average;
