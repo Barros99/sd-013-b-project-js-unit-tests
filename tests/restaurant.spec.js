@@ -72,7 +72,9 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     // Agora faça o PASSO 1 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
     // TESTE 4: Verifique que 'objetoRetornado.consumption', após a criação do menu, retorna um array vazio.
-    assert.fail();
+    assert.strictEqual(createMenu({ food: {}, drink: {} }).hasOwnProperty('consumption'), true);    
+    assert.strictEqual(Array.isArray(createMenu({ food: {}, drink: {} }).consumption), true);
+    assert.strictEqual(createMenu({ food: {}, drink: {} }).consumption.length, 0);
     // ```
     // const objetoRetornado = createMenu(objetoQualquer);
     // objetoRetornado.consumption // Retorno: []
