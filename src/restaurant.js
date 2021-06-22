@@ -98,7 +98,8 @@ const createMenu = (menuObject) => {
           totalPrice += menu.fetchMenu().drink[`${menu.consumption[index]}`];
         }
       }
-      return parseFloat(totalPrice.toPrecision(3));
+      totalPrice += (totalPrice * 0.1);
+      return parseFloat(totalPrice.toPrecision(4));
     },
   };
   return menu;

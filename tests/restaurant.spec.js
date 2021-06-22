@@ -152,7 +152,7 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     objeto4.order('agua');
     objeto4.order('coxinha');
     const teste8 = objeto4.pay();
-    const expected8 = 11.7;
+    const expected8 = 12.87;
     assert.deepStrictEqual(teste8, expected8);
 
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
