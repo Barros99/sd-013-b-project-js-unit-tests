@@ -14,7 +14,7 @@
 
 const average = (array) => {
   const arraySize = array.length;
-  let count = 0;
+  let total = 0;
 
   if (arraySize === 0) {
     return undefined;
@@ -24,10 +24,10 @@ const average = (array) => {
     if (typeof (iterator) !== 'number') {
       return undefined;
     }
-    count += iterator;
+    total += iterator;
   }
 
-  return Math.round(count / arraySize);
+  return Math.round(total / arraySize);
 };
 
 module.exports = average;
