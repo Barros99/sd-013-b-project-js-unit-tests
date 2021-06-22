@@ -20,7 +20,7 @@ const average = (arr) => {
       return undefined;
     }
   }
-  return  Math.round(arr.reduce((a, b) => (a + b) / arr.length));
+  return Math.round(arr.reduce((a, b) => (a + b) / arr.length));
 };
 
 console.log(average([1, 2]));
