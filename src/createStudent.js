@@ -16,9 +16,12 @@
 */
 
 const createStudent = (nome) => {
-  const objeto = {};
-  objeto['name'] = nome;
-  objeto['feedback'] = () => {return `Eita pessoa boa!`};
+  const objeto = {
+    name: '',
+  };
+  objeto.name = nome;
+  objeto.feedback = () => 'Eita pessoa boa!'; 
+  
   return objeto;
 };
 const output = createStudent('Diogo');
