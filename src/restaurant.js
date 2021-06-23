@@ -100,7 +100,9 @@ const createMenu = (obj) => ({
       },
 });
 
-const objetoRetornado = createMenu({ food: {'coxinha': 3.90, 'sopa': 9.9}, drink: {'agua': 3.90, 'cerveja': 6.9} });
+const objetoRetornado = createMenu({
+  food: { coxinha: 3.90, sopa: 9.9 }, drink: { agua: 3.90, cerveja: 6.9 },
+});
 objetoRetornado.order('coxinha');
 objetoRetornado.order('agua');
 console.log(objetoRetornado.pay());
