@@ -12,18 +12,17 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {
+const average = (array) => {
   var i = 0;
   var sum = 0;
   var len = array.length;
-  var media;
-  while(i < len) {
+  var avg;
+  while (i < len) {
     sum = sum = array[i += 1];
   }
-  media = sum/len;
+  avg = sum / len;
 
-  return media;
-// add implementation here
+  return avg;
 
 };
 
