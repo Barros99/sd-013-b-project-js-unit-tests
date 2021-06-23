@@ -40,6 +40,7 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     // Teste que os dois objetos são diferentes entre si.
     assert.deepStrictEqual(Object.values(productDetails()[0]) !== Object.values(productDetails()[1]), true);
     // Teste que os dois productIds terminam com 123.
+    // Trecho resolvido com ajuda do Eduardo Pranto.
     const object1 = Object.values(productDetails('Alcool gel', 'Máscara')[0]);
     const object2 = Object.values(productDetails('Alcool gel', 'Máscara')[1]);
     assert.deepStrictEqual(object1[1].productId.slice(-3) && object2[1].productId.slice(-3), '123'); 
