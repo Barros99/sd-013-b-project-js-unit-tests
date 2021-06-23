@@ -17,5 +17,4 @@
 
 const createStudent = (nome) => {};
 
-console.log(createStudent('Leandro'))
 module.exports = createStudent;
