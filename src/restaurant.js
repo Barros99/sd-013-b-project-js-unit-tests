@@ -96,7 +96,7 @@ const createMenu = (menu) => {
         sum += itemPrice;
       });
 
-      return sum;
+      return parseFloat((sum * 1.1).toPrecision(4));
     },
   };
   
