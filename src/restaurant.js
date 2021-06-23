@@ -92,19 +92,22 @@ module.exports = createMenu;
 //////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////
+let obj;
+let parametro;
 
 const assert = require('assert');
 
-assert.strictEqual(typeof createMenu().fetchMenu, 'function');
+obj = createMenu();
+assert.strictEqual(typeof obj.fetchMenu, 'function');
 
-assert.deepStrictEqual(
-  { food: {}, drink: {} },
-  createMenu({ food: {}, drink: {} }).fetchMenu()
-);
+parametro = { food: {}, drink: {} };
+obj = createMenu(parametro);
+assert.deepStrictEqual(parametro, obj.fetchMenu());
 
-assert.deepStrictEqual(
-  { cachorro: 'chub' },
-  createMenu({ cachorro: 'chub' }).fetchMenu()
-);
+parametro = { cachorro: 'chub' };
+obj = createMenu(parametro);
+assert.deepStrictEqual(parametro, obj.fetchMenu());
 
-assert.deepStrictEqual(createMenu({ energetic: 'monster' }).consumption, []);
+parametro = { energetic: 'monster' };
+obj = createMenu(parametro);
+assert.deepStrictEqual(obj.consumption, []);
