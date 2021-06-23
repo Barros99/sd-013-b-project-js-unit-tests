@@ -140,7 +140,7 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     menuObjReturned.order('agua');
     menuObjReturned.order('coxinha');
 
-    assert.strictEqual(menuObjReturned.pay(), 11.7);
+    assert.strictEqual(Number(menuObjReturned.pay().toPrecision(4)), 12.87);
 
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
   });
