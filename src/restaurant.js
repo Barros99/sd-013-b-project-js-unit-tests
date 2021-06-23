@@ -79,6 +79,64 @@
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-const createMenu = () => {};
+const createMenu = (myMenu) => {
+  // Inicia o restaurante
+  const restaurant = {
+    menu: {
+      food: {},
+      drink: {},
+    },
+    consumption: [],
+  };
+  
+  // Adiciona o cardápio ao restaurante
+  restaurant.menu = myMenu;
+
+  // reune todos os ítens do menu
+  const itensMenu = () => {
+    const foods = Object.entries(restaurant.menu.food);
+    const drinks = Object.entries(restaurant.menu.drink);
+    return [].concat(foods, drinks);
+  };
+
+  // busca o preço, no menu, por ítem indicado
+  const getPrice = (item) => {
+    const allItensMenu = itensMenu();
+    let priceItem = 0;
+    // percorre os ítens food e drink procurando o ítem
+    for (const itemMenu of allItensMenu) {
+      if (item === itemMenu[0]) {
+        priceItem = parseFloat(itemMenu[1]);
+      }
+    }
+    return priceItem;
+  };
+
+  // adiciona produto aos pedidos
+  const addConsumption = (produto) => restaurant.consumption.push(produto);
+
+  // apresenta o menu
+  const restaurantFetchMenu = {
+    fetchMenu: () => restaurant.menu,
+    order: (produto) => {
+      addConsumption(produto);
+    },
+    pay: () => {
+      // varre os ítens consumidos
+      let total = 0;
+      for (const item of restaurant.consumption) {
+        // consulta o preço do ítem
+        total += getPrice(item);
+        // armazena o valor do ítem no total da conta
+      }
+      return parseFloat((total * 1.1).toPrecision(4)); // acréscimo de 10%
+    },
+  };
+
+  // Adiciona os pedidos feitos ao restaurante
+  Object.assign(restaurant, restaurantFetchMenu);
+
+  return restaurant;
+};
 
 module.exports = createMenu;
