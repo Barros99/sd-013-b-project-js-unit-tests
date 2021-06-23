@@ -38,6 +38,6 @@ const productDetails = (firstProduct, secondProduct) => [
     },
   },
 ];
-let a = productDetails('a','b');
-  console.log(a);
+let valor = productDetails('aaa', 'aa');
+console.table(valor);
 module.exports = productDetails;
