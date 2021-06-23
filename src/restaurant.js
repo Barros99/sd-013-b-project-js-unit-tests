@@ -81,7 +81,7 @@
 
 function addOrder(pedido) {
   this.comsumption.push(pedido);
-};
+}
 
 const createMenu = (objeto) => {
   const menu = {
@@ -104,6 +104,5 @@ const createMenu = (objeto) => {
   };
   return menu;
 };
-
 
 module.exports = createMenu;
