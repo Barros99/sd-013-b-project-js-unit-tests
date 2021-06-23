@@ -18,7 +18,7 @@ const average = (array) => {
   var len = array.length;
   var avg;
   while (i < len) {
-    sum = sum = array[i += 1];
+    sum = sum + array[i += 1];
   }
   avg = sum / len;
 
