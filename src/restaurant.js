@@ -82,11 +82,25 @@ function addOrder(arg) {
   this.consumption.push(arg);
 }
 
+function price() {
+  let sum = 0;
+  const consump = this.consumption;
+  const menu = this.fetchMenu();
+  for (let i = 0; i < consump.length; i += 1) {
+    if (typeof menu.food[consump[i]] === 'number') {
+      sum += menu.food[consump[i]];
+    } else sum += menu.drink[consump[i]];
+  }
+  sum *= 1.1;
+  return Number(sum.toFixed(2));
+}
+
 function createMenu(arg) {
   const obj = {
     fetchMenu: () => arg,
     consumption: [],
     order: addOrder,
+    pay: price,
   };
 
   return obj;
@@ -138,3 +152,22 @@ assert.deepStrictEqual(obj.consumption.slice(-3), [
   'agua',
   'coxinha',
 ]);
+
+parametro = {
+  food: {
+    coxinha: 5,
+    batata: 4,
+    churrasco: 6,
+  },
+
+  drink: {
+    agua: 2,
+    cerveja: 3,
+    vodka: 4,
+  },
+};
+obj = createMenu(parametro);
+obj.order('coxinha');
+obj.order('agua');
+obj.order('coxinha');
+assert.strictEqual(obj.pay(), 13.2);
