@@ -88,9 +88,21 @@ const createMenu = (obj) => ({
       fetchMenu: () => obj,
       consuption: [],
       order: insertOrder,
+      pay() {
+        let finalPrice = 0;
+        this.consuption.forEach((v) => {
+         if (obj.food[v]) finalPrice += obj.food[v];
+        });
+        this.consuption.forEach((v) => {
+          if (obj.drink[v]) finalPrice += obj.drink[v];
+        });
+        return parseFloat((finalPrice * 1.01).toFixed(2));
+      },
 });
 
-const objetRetornado = createMenu();
-console.log(objetRetornado.order('teste'));
+const objetoRetornado = createMenu({ food: {'coxinha': 3.90, 'sopa': 9.9}, drink: {'agua': 3.90, 'cerveja': 6.9} });
+objetoRetornado.order('coxinha');
+objetoRetornado.order('agua');
+console.log(objetoRetornado.pay());
 
 module.exports = createMenu;
