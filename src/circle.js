@@ -1,3 +1,4 @@
+const assert = require('assert');
 /* eslint-disable max-len */
 
 /*
@@ -20,7 +21,9 @@
 
 const circle = (radius) => {
   const PI = 3.14;
-  if (!radius) { return undefined; }
+  if (!radius) {
+    return undefined;
+  }
   return {
     radius,
     area: PI * radius * radius,
@@ -29,3 +32,22 @@ const circle = (radius) => {
 };
 
 module.exports = circle;
+// console.log(Object.entries(circle(3)), { radius: 2, area: 12.56, circumference: 12.56 });
+assert.strictEqual(typeof circle(10), 'object');
+assert.deepStrictEqual(circle(5), {
+  radius: 5,
+  area: 78.5,
+  circumference: 31.400000000000002,
+});
+assert.strictEqual(circle(), undefined);
+assert.deepStrictEqual(circle(2), {
+  radius: 2,
+  area: 12.56,
+  circumference: 12.56,
+});
+assert.ok(circle(3), { area: 28.259999999999998 });
+assert.deepStrictEqual(circle(3), {
+  radius: 3,
+  area: 28.259999999999998,
+  circumference: 18.84,
+});
