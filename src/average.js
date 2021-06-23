@@ -13,20 +13,18 @@
 */
 
 const average = (array) => {
-  if (array === 0) {
-    return 0;
+  if (array.length === 0) {
+    return undefined;
   } 
-  else (typeof (array) !== 'number') {
-    return undefined
-  };
-
   let somar = 0;
-  for (let index = 0; index <= array.lenght; index += 1) {
+  for (let index = 0; index < array.length; index += 1) {
+    if (typeof (array[index]) !== 'number') {
+      return undefined;
+    }
     somar += array[index];
   }  
-  let media = somar / 2;
-  media = Math.round(media);
+  let media = somar / array.length;
+  return Math.round(media);
 }; 
-return media;
 
 module.exports = average;
