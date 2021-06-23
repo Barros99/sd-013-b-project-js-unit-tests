@@ -111,3 +111,6 @@ assert.deepStrictEqual(parametro, obj.fetchMenu());
 parametro = { energetic: 'monster' };
 obj = createMenu(parametro);
 assert.deepStrictEqual(obj.consumption, []);
+
+obj.order('coxinha');
+assert.deepStrictEqual(obj.consumption.slice(-1), ['coxinha']);
