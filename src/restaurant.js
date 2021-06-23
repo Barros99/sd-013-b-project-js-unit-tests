@@ -85,17 +85,13 @@ const createMenu = (objeto) => ({
   order(string) {
     this.consumption.push(string);
   },
-  // eslint-disable-next-line sonarjs/cognitive-complexity
+
   pay() {
     let preços = { ...objeto.drink, ...objeto.food };
     let sum = 0;
     let orders = this.consumption;
     for (let index = 0; index < orders.length; index += 1) {
-      for (let keys in preços) {
-        if (keys === orders[index]) {
-          sum += preços[keys];
-        }
-      }
+      sum += preços[orders[index]];
     }
     sum *= 1.1;
     return parseFloat(sum).toPrecision(4);
