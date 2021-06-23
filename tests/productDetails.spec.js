@@ -32,7 +32,7 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
   it('Verifica se a função `productDetails` tem o comportamento esperado', () => {
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste que o retorno da função é um array.
-    // assert.strictEqual(typeof productDetails('Alcool gel', 'Máscara'), 'array');
+    assert.strictEqual(Array.isArray(productDetails('Alcool gel', 'Máscara')), true);
 
     // Teste que o array retornado pela função contém dois itens dentro.
     assert.strictEqual(Object.entries(productDetails('Alcool gel', 'Máscara')).length, 2);
@@ -41,10 +41,21 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     assert.strictEqual(typeof(Object.entries(productDetails('Alcool gel', 'Máscara'))), 'object');
 
     // Teste que os dois objetos são diferentes entre si.
+    let equality = () => {if ('Alcool gel' === 'Máscara') {return true} else {return false}};
+    assert.strictEqual(equality(), false);
 
     // Teste que os dois productIds terminam com 123.
-    assert.deepStrictEqual(productDetails('Alcool gel', 'Máscara').details.productId, '*123'); // errado
-
-    // terminar depois 
+    let ids = productDetails('Alcool gel', 'Máscara');
+    let idFunction = () => {
+      for (let index = 0; index < ids.length; index += 1) {
+        let id = ids[index].details.productId;
+        if (id.endsWith('123')) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    } 
+    assert.strictEqual(idFunction(), true);
   });
 });
