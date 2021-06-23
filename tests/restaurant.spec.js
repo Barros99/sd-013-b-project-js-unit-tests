@@ -75,9 +75,9 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     // TESTE 4: Verifique que 'objetoRetornado.consumption', após a criação do menu, retorna um array vazio.
     const objetoRetornado = createMenu();
 
-    assert.strictEqual(createMenu().hasOwnProperty('consumption'), true);    
-    assert.strictEqual(Array.isArray(createMenu().consumption), true);
-    assert.strictEqual(createMenu().consumption.length, 0);
+    assert.strictEqual(objetoRetornado.hasOwnProperty('consumption'), true);    
+    assert.strictEqual(Array.isArray(objetoRetornado.consumption), true);
+    assert.strictEqual(objetoRetornado.consumption.length, 0);
     // ```
     // const objetoRetornado = createMenu(objetoQualquer);
     // objetoRetornado.consumption // Retorno: []
@@ -86,10 +86,10 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     // --------------------------------------------------------------------------------------
     // TESTE 5: Verifique que chamar uma função associada à chave `order` no objeto retornado, passando uma string como parâmetro, 
     // como `objetoRetornado.order('coxinha')`, tal string é adicionada ao array retornado em `objetoRetornado.consumption
-    assert.fail()
+    // assert.fail()
     assert.strictEqual(typeof(objetoRetornado.order), 'function');
     objetoRetornado.order('coxinha');
-    assert.deepStrictEqual(objetoRetornado.consumption.includes('coxinha'), true);
+    assert.strictEqual(objetoRetornado.consumption.includes('coxinha'), true);
     // ```
     // const objetoRetornado = createMenu(objetoQualquer);
     // objetoRetornado.order("coxinha");

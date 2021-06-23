@@ -86,16 +86,11 @@ const createMenu = (myMenu) => {
   const newMenu = {
     fetchMenu: () => myMenu,
     consumption: [],
-    order: () => {},
+    order: addConsumption,
   };
 
   return newMenu;
 };
 const objetoRetornado = createMenu();
-
-objetoRetornado.order = addConsumption;
-
-// objetoRetornado.order('coxinha');
-console.log(objetoRetornado.consumption.includes('coxinha'));
 
 module.exports = createMenu;
