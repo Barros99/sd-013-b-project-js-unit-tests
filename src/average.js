@@ -15,7 +15,7 @@
 const assert = require('assert');
 
 const average = (array) => {
-  if (array.length === 0) { /* pq não posso usars array === []???*/
+  if (array.length === 0) { /* pq não posso usars array === []??? */
     return undefined;
   }
   let numbers = 0;
