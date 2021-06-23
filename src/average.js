@@ -22,8 +22,7 @@ const average = (array) => {
   }
   avg = sum / len;
 
-  return avg;
-
+return avg;
 };
 
 module.exports = average;
