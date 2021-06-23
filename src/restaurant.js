@@ -100,7 +100,7 @@ const createMenu = (objeto) => {
         }
       }
       return total * 1.1;
-    }
+    },
   };
   return menu;
 };
