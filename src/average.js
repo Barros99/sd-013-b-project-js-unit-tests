@@ -13,35 +13,35 @@
 */
 
 const assert = require('assert');
+
 const average = (array) => {
-  if (array.length === 0) { /*pq não posso usars array === []???*/
-    return undefined
+  if (array.length === 0) { /* pq não posso usars array === []???*/
+    return undefined;
   }
-  let numbers = 0
-  for (let index = 0; index < array.length; index +=1 ) {
-    if (typeof array[index] !== 'number') {
-    return undefined
-    }
-  numbers = numbers + array[index]
+  let numbers = 0;
+  for (let index = 0; index < array.length; index += 1) {
+  if (typeof array[index] !== 'number') {
+  return undefined;
   }
-  return Math.round(numbers/array.length)
-  
-}
+  numbers += array[index];
+  }
+  return Math.round(numbers / array.length); 
+};
 
 module.exports = average;
 
-assert.strictEqual(average([3, 4, 5]), 4);
-assert.strictEqual(average([1, 2, 3, '4', 5]), undefined);
-assert.strictEqual(average([0, 0, 0, 0, 0, 0, 0]), 0);
-assert.strictEqual(average([1, 2, '3']), undefined);
-assert.strictEqual(average([1, 2, 3]), 2);
-assert.strictEqual(average([0, 0, 0, 0, 0, 0, 1]), 0);
+// assert.strictEqual(average([3, 4, 5]), 4);
+// assert.strictEqual(average([1, 2, 3, '4', 5]), undefined);
+// assert.strictEqual(average([0, 0, 0, 0, 0, 0, 0]), 0);
+// assert.strictEqual(average([1, 2, '3']), undefined);
+// assert.strictEqual(average([1, 2, 3]), 2);
+// assert.strictEqual(average([0, 0, 0, 0, 0, 0, 1]), 0);
 
-assert.strictEqual(average([]), undefined);
-assert.strictEqual(average([' ']), undefined);
-assert.strictEqual(average(['um', 'dois', 'tres']), undefined);
-assert.strictEqual(average([47, 63, 122]), 77);
+// assert.strictEqual(average([]), undefined);
+// assert.strictEqual(average([' ']), undefined);
+// assert.strictEqual(average(['um', 'dois', 'tres']), undefined);
+// assert.strictEqual(average([47, 63, 122]), 77);
 
-assert.strictEqual(average([-11, 2, 5]), -1);
+// assert.strictEqual(average([-11, 2, 5]), -1);
 
-assert.strictEqual(average([-11, -5, 2]), -5);
+// assert.strictEqual(average([-11, -5, 2]), -5);
