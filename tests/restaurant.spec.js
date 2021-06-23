@@ -123,6 +123,14 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     // objetoRetornado.order('coxinha');
     // objetoRetornado.comsuption // Retorno: ['coxinha', 'agua', 'coxinha']
     // ```
+    obj.order('coxinha');
+    obj.order('agua');
+    obj.order('coxinha');
+    assert.deepStrictEqual(obj.consumption.slice(-3), [
+      'coxinha',
+      'agua',
+      'coxinha',
+    ]);
     // Agora faça o TESTE 8 deste arquivo.
     // --------------------------------------------------------------------------------------
     // TESTE 8: Verifique que, ao chamar `objetoRetornado.pay()`, retorna-se a soma dos preços de tudo que foi pedido, conforme registrado em `objetoRetornado.consumption`

@@ -129,3 +129,12 @@ assert.deepStrictEqual(obj.consumption.slice(-4), [
   'sopa',
   'sashimi',
 ]);
+
+obj.order('coxinha');
+obj.order('agua');
+obj.order('coxinha');
+assert.deepStrictEqual(obj.consumption.slice(-3), [
+  'coxinha',
+  'agua',
+  'coxinha',
+]);
