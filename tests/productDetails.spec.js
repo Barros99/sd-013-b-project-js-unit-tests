@@ -40,6 +40,5 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     assert.strictEqual(productDetails()[0] !== productDetails()[1], true);
     // Teste que os dois productIds terminam com 123.
     assert.strictEqual(productDetails()[0].details.productId.substr(-3) && productDetails()[1].details.productId.substr(-3),'123');
-    
   });
 });
