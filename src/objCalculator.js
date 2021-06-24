@@ -30,4 +30,7 @@ const calculator = {
   div,
   sub,
 };
+
+console.log(calculator.add(1, 2));
+
 module.exports = calculator;

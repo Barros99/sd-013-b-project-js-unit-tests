@@ -48,30 +48,36 @@ const createMenu = require('../src/restaurant');
 
 describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
   it('Verifica se a função `createMenu` tem o comportamento esperado', () => {
-    assert.fail();
     // TESTE 1: Verifique se o retorno da função createMenu() é um objeto que possui, 
     // mas não é necessariamente é limitado à chave `fetchMenu`, a qual tem como valor uma função.
-    // ```
-    // const objetoRetornado = createMenu(); // Retorno: { fetchMenu: () => {}, ... }
+    const objetoRetornado = createMenu(); // Retorno: { fetchMenu: () => {}, ... }
+      assert.strictEqual(typeof objetoRetornado.fetchMenu,'function')
     // ```
     // TESTE 2: Verifique que, dado que a função createMenu foi chamada com o objeto: `{ food: {}, drink: {} }`, 
+    const objetoRetornado2=createMenu({food:{},drink:{}})
+    const fetchMenu=objetoRetornado2.fetchMenu()
+
+      assert.deepStrictEqual(fetchMenu,{food:{},drink:{}})
+      //praticar de formas diferentes
+      assert.deepStrictEqual(Object.keys(fetchMenu),['food','drink'])
     // verifique que 'objetoRetornado.fetchMenu()' retorna um objeto cujas chaves são somente `food` e `drink`.
-    // ```
-    // const objetoRetornado = createMenu({ food: {}, drink: {} });
-    // objetoRetornado.fetchMenu() // Retorno: { food: {}, drink: {}}
-    // ```
+    
+    objetoRetornado.fetchMenu() // Retorno: { food: {}, drink: {}}
+    const objetoRetornado = createMenu({ food: {}, drink: {} });
+      
     // TESTE 3: Verifique que o menu passado pra função createMenu é identico ao menu recuperado pela função 'objetoRetornado.fetchMenu'
-    // ```
-    // const objetoRetornado = createMenu(objetoQualquer);
-    // objetoRetornado.fetchMenu() // Retorno: objetoQualquer
-    // ```
+    const menuQualquer = {car:{},bus:{}}
+    const createdMenu = createMenu(objetoQualquer);
+    objetoRetornado.fetchMenu() // Retorno: objetoQualquer
+    
+    assert.strictEqual(createdMenu.fetchMenu(),menuQualquer)
     // Agora faça o PASSO 1 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
+    const objetoRetornado = createMenu(objetoQualquer);
+    objetoRetornado.consumption // Retorno: []
     // TESTE 4: Verifique que 'objetoRetornado.consumption', após a criação do menu, retorna um array vazio.
-    // ```
-    // const objetoRetornado = createMenu(objetoQualquer);
-    // objetoRetornado.consumption // Retorno: []
-    // ```
+    
+   
     // Agora faça o PASSO 2 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
     // TESTE 5: Verifique que chamar uma função associada à chave `order` no objeto retornado, passando uma string como parâmetro, 
