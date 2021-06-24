@@ -11,11 +11,7 @@
   Comportamento:
   */
 
- 
- const createStudent = (name) => { const estudante = { 
-   name,
-   feedback: () => `Eita pessoa boa!`
-  }
+ const createStudent = (name) => { const estudante = { name, feedback: () => 'Eita pessoa boa!' }
   return estudante;
 }
 const estudante = createStudent('Leandrão');
