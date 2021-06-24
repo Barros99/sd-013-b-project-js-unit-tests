@@ -27,7 +27,7 @@ describe('4 - Implemente os casos de teste para a função `circle`', () => {
   it('Verifica se ao receber um raio, a função `circle` retorna um objeto contedos os valores esperados', () => {
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste se circle retorna um objeto.
-    assert.strictEqual(typeof circle(3), 'object');
+    assert.strictEqual(typeof circle(4), 'object');
     // Teste se o objeto retornado tem 3 entradas.
     assert.strictEqual(Object.keys(circle(3)).length, 3);
     // Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
@@ -39,7 +39,7 @@ describe('4 - Implemente os casos de teste para a função `circle`', () => {
     // Teste que a função retorna, num objeto, os dados corretos de um círculo de raio 3.
     assert.strictEqual(Object.entries(circle(3)), [
       ['radius', 3],
-      ['area', 3],
+      ['area', 28.259999999999998],
       ['circunference', 18.84],
     ]);
   });
