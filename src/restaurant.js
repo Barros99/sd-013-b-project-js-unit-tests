@@ -43,10 +43,12 @@
   - Uma chave `pay` que, quando chamada, invoca uma função que soma o valor de todos os pedidos e dá o preço com acréscimo de 10%.
 
   IMPORTANTE: COMECE PELO TESTE 1 DO ARQUIVO `tests/restaurant.spec.js` E NÃO PELO PASSO 1 DESTE ARQUIVO!
-*/
-
+  */
+ 
 // PASSO 1: Crie uma função `createMenu()` que, dado um objeto passado por parâmetro, retorna um objeto com o seguinte formato: { fetchMenu: () => objetoPassadoPorParametro }.
 //
+
+
 // Agora faça o TESTE 4 no arquivo `tests/restaurant.spec.js`.
 
 //------------------------------------------------------------------------------------------
@@ -78,7 +80,21 @@
 // PASSO 4: Adicione ao objeto retornado por `createMenu()` uma chave `pay` com uma função que varre todo os itens de `objetoRetornado.consumption`, 
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
+function addOrder(product) {
+  (this.comsumption).push(product);
+}
+const objectTest = {
+  food: { coxinha: 3.90, sanduiche: 9.90 },
+  drinks: { agua: 3.90, cerveja: 6.90 },
+};
 
-const createMenu = () => {};
+const createMenu = (obj) => ({
+  fetchMenu: () => obj,
+  comsumption: [],
+  order: addOrder,
+  pay: () => 'valores + 10%',
+});
+
+createMenu(objectTest).order('café');
 
 module.exports = createMenu;
