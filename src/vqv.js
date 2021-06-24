@@ -17,7 +17,7 @@
 */
 
 const vqv = (nome, idade) => {
-  if((nome.length === 0) || (idade.length === 0)){
+  if ((nome.length === 0) || (idade.length === 0)) {
     return undefined;
   }
   let frase = `Oi, meu nome é ${nome}!
