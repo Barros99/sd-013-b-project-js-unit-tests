@@ -46,13 +46,13 @@
 */
 
 // PASSO 1: Crie uma função `createMenu()` que, dado um objeto passado por parâmetro, retorna um objeto com o seguinte formato: { fetchMenu: () => objetoPassadoPorParametro }.
-//
 // Agora faça o TESTE 4 no arquivo `tests/restaurant.spec.js`.
 
 //------------------------------------------------------------------------------------------
 
 // PASSO 2: Adicione ao objeto retornado por `createMenu` uma chave `consumption` que, como valor inicial, tem um array vazio.
-//
+// const objRetornado = createMenu(objeto);
+// objRetornado.consumption = [];
 // Agora faça o TESTE 5 no arquivo `tests/restaurant.spec.js`.
 
 //------------------------------------------------------------------------------------------
@@ -66,9 +66,7 @@
 // ```
 // const restaurant = {}
 //
-// const createMenu = (myMenu) => // Lógica que edita o objeto `restaurant`
-//
-// const orderFromMenu = (request) => // Lógica que adiciona à chave `consumption` de `restaurant` a string recebida no parâmetro `request`. 
+// Lógica que edita o objeto `restaurant`
 // // Essa função deve ser associada à chave `order` de `restaurant`
 // ```
 // Agora faça o TESTE 6 no arquivo `tests/restaurant.spec.js`.
@@ -79,6 +77,27 @@
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-const createMenu = () => {};
+const createMenu = (objetoParametro) => {
+  let arrayConsumption = [];
+  const objeto = objetoParametro;
+  return { 
+    fetchMenu: () => objeto,
+    consumption: arrayConsumption,
+    order: (product) => {
+      arrayConsumption.push(product);
+    },
+    pay: () => {
+      let somaDosPrecosDosPedidos = 0;
+      for (let key in arrayConsumption) {
+        if (arrayConsumption[key] in objeto.food) {
+          somaDosPrecosDosPedidos += objeto.food[arrayConsumption[key]];
+        } else if (arrayConsumption[key] in objeto.drinks) {
+          somaDosPrecosDosPedidos += objeto.drinks[arrayConsumption[key]];
+        }
+      }
+      return somaDosPrecosDosPedidos;
+    },
+  };
+};
 
 module.exports = createMenu;
