@@ -95,10 +95,10 @@ const createMenu = (menuDoRestaurante) => {
     pay() {
       let sum = 0; // novoMenu.consumption = this.consumption - this referencia ao obj novoMenu
       for (let i = 0; i < this.consumption.length; i += 1) { // this.consumption > acessa a chave comsuption dentro do objeto;
-        if (menuDoRestaurante.food[this.consumption[i]] !== undefined) { // this.consumption[i]
-          sum += menuDoRestaurante.food[this.consumption[i]];
+        if (menuDoRestaurante.food[obj.consumption[i]] !== undefined) { // this.consumption[i]
+          sum += menuDoRestaurante.food[obj.consumption[i]];
         } else {
-          sum += menuDoRestaurante.drinks[this.consumption[i]];
+          sum += menuDoRestaurante.drinks[obj.consumption[i]];
         }
       }
       return parseFloat((sum * 1.1).toPrecision(4));
