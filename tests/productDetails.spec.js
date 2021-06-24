@@ -45,6 +45,7 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     assert.deepStrictEqual(productDetails()[0] !== productDetails[1], true);
 
     // Teste que os dois productIds terminam com 123.
+    //endsWidth - Dica do José Dmig
     assert.deepStrictEqual(productDetails()[0]['details']['productId'].endsWith('123'), true)
     assert.deepStrictEqual(productDetails()[1]['details']['productId'].endsWith('123'), true)
   });
