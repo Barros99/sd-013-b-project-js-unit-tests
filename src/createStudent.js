@@ -11,9 +11,13 @@
   Comportamento:
   */
 
- const createStudent = (name) => { const estudante = { name, feedback: () => 'Eita pessoa boa!' }
-  return estudante;
+ const createStudent = (name) => { 
+  const estudante = { 
+  name, 
+  feedback: () => 'Eita pessoa boa!' 
 }
+  return estudante;
+};
 const estudante = createStudent('Leandrão');
 
 console.log(estudante.feedback());
