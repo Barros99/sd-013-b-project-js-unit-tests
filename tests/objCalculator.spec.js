@@ -4,7 +4,7 @@ const calculator = require('../src/objCalculator');
 /*
   Desenvolva um objeto calculator que possui quatro chaves:
     - add;
-    - mult;
+    - mult; 
     - div;
     - sub.
   Para cada uma delas atribua uma função que realiza a respectiva operação. A função deve receber dois inteiros e retornar um inteiro. Os resultados das divisões devem sempre ser arredondados para baixo.
