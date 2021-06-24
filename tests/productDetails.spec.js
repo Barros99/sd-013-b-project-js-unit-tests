@@ -43,6 +43,6 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     const objectTwo = Object.values(productDetails('Alcool gel', 'Máscara')[1])
     assert.deepStrictEqual(objectOne !== objectTwo, true)
     // Teste que os dois productIds terminam com 123.
-    assert.deepStrictEqual(objectOne[1].productId.slice(-3) === objectTwo[1].productId.slice(-3), true);
+    assert.deepStrictEqual(objectOne[1].productId.slice(-3) && objectTwo[1].productId.slice(-3), '123');
   });
 });
