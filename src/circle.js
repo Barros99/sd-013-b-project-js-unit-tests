@@ -29,3 +29,6 @@ const circle = (radius) => {
 };
 
 module.exports = circle;
+
+const area = Number(parseFloat(circle(3).area).toPrecision(2));
+console.log(typeof (area));
