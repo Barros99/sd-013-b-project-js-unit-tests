@@ -54,30 +54,20 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     assert.deepStrictEqual(typeObj(), true);
 
     // Teste que os dois objetos são diferentes entre si.
-    const valuesObj = (par1, par2) => {
-      const obj1 = Object.entries(productDetails(par1, par2)[0]);
-      const obj2 = Object.entries(productDetails(par1, par2)[1]);
-      if (obj1 === obj2) {
-        return true;
-      }
-      return false;
-    };
-    
-    assert.deepStrictEqual(valuesObj('Alcool gel', 'Máscara'), false);
+    assert.notDeepStrictEqual(
+      productDetails('Alcool gel', 'Máscara')[0],
+      productDetails('Alcool gel', 'Máscara')[1]
+    );
 
     // Teste que os dois productIds terminam com 123.
     const finalId = () => {
-      const finalProductIds = productDetails('Alcool gel123', 'Máscara')[1]
-        .details.productId;
-      const finalProductIds2 = productDetails('Alcool gel123', 'Máscara')[0]
+      const finalProductIds = productDetails('Alcool gel', 'Máscara')[1].details
+        .productId;
+      const finalProductIds2 = productDetails('Alcool gel', 'Máscara')[0]
         .details.productId;
       if (
-        finalProductIds[finalProductIds.length - 1] === '3' &&
-        finalProductIds[finalProductIds.length - 2] === '2' &&
-        finalProductIds[finalProductIds.length - 3] === '1' &&
-        finalProductIds2[finalProductIds2.length - 1] === '3' &&
-        finalProductIds2[finalProductIds2.length - 2] === '2' &&
-        finalProductIds2[finalProductIds2.length - 3] === '1'
+        finalProductIds.includes('123') === true &&
+        finalProductIds2.includes('123') === true
       ) {
         return true;
       }
