@@ -19,10 +19,10 @@ const myCounter = () => {
   var myArray = [];
   for (let counter = 0; counter <= 3; counter += 1) {
     myArray.push(counter);
-    console.log('linha 22', counter )
-    for (let counter = 2; counter <= 3; counter += 1) {
-      myArray.push(counter);
-      console.log('linha 25', counter)
+    console.log('linha 22', counter);
+    for (let counter1 = 2; counter1 <= 3; counter1 += 1) {
+      myArray.push(counter1);
+      console.log('linha 25', counter1);
     }
   }
   return myArray;
