@@ -25,6 +25,7 @@
 */
 
 const productDetails = (firstProduct, secondProduct) => [
+  
   {
     name: firstProduct,
     details: {
@@ -37,6 +38,9 @@ const productDetails = (firstProduct, secondProduct) => [
       productId: `${secondProduct}123`,
     },
   },
+  
 ];
+
+
 
 module.exports = productDetails;
