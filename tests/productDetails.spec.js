@@ -1,6 +1,6 @@
-const assert = require('assert');
-const { type } = require('os');
-const productDetails = require('../src/productDetails');
+const assert = require("assert");
+const { type } = require("os");
+const productDetails = require("../src/productDetails");
 
 /*
   Dadas duas strings que representam nomes de produtos, retorne um array contendo dois objetos com os detalhes dos respectivos produtos.
@@ -29,20 +29,22 @@ const productDetails = require('../src/productDetails');
   OBS: Lembre-se que você não precisa se preocupar com o describe e o it por enquanto, isso será aprendido posteriormente.
 */
 
-describe('6 - Implemente os casos de teste para a função `productDetails`', () => {
-  it('Verifica se a função `productDetails` tem o comportamento esperado', () => {
-    
+describe("6 - Implemente os casos de teste para a função `productDetails`", () => {
+  it("Verifica se a função `productDetails` tem o comportamento esperado", () => {
     // ESCREVA SEUS TESTES ABAIXO:
-    let assert = require('assert');
+    let assert = require("assert");
     // Teste que o retorno da função é um array.
-    assert.notStrictEqual(typeof(productDetails), 'object')
+    assert.notStrictEqual(typeof productDetails, "object");
     // Teste que o array retornado pela função contém dois itens dentro.
-    assert.strictEqual(productDetails().length, 2)
+    assert.strictEqual(productDetails().length, 2);
     // Teste que os dois itens dentro do array retornado pela função são objetos.
-    assert.strictEqual(typeof (productDetails()), 'object')
+    assert.strictEqual(typeof productDetails(), "object");
     // Teste que os dois objetos são diferentes entre si.
-    assert.notDeepStrictEqual(productDetails('arroz','feijao'), true)
+    assert.notDeepStrictEqual(productDetails("arroz", "feijao"), true);
     // Teste que os dois productIds terminam com 123.
-    assert.strictEqual(productDetails()[0].details.productId.includes(123), true)
+    assert.strictEqual(
+      productDetails()[0].details.productId.includes(123),
+      true
+    );
   });
 });
