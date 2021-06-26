@@ -13,7 +13,17 @@
   Eles guiarão você pelo desenvolvimento.
 
   Parâmetros:
-  - Um objeto. Exemplos: { food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} }.
+  - Um objeto. Exemplos: 
+  { 
+    food: {
+      'coxinha': 3.9, 
+      'sopa': 9.9
+    }, 
+    drink: {
+      'agua': 3.9, 
+      'cerveja': 6.9
+    } 
+  }.
   Comportamento:
 
   const meuRestaurante = createMenu({ food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} }).
@@ -43,9 +53,13 @@
   - Uma chave `pay` que, quando chamada, invoca uma função que soma o valor de todos os pedidos e dá o preço com acréscimo de 10%.
 
   IMPORTANTE: COMECE PELO TESTE 1 DO ARQUIVO `tests/restaurant.spec.js` E NÃO PELO PASSO 1 DESTE ARQUIVO!
-*/
+  */
+ 
+ // PASSO 1: Crie uma função `createMenu()` que, dado um objeto passado por parâmetro, retorna um objeto com o seguinte formato: { fetchMenu: () => objetoPassadoPorParametro }.
 
-// PASSO 1: Crie uma função `createMenu()` que, dado um objeto passado por parâmetro, retorna um objeto com o seguinte formato: { fetchMenu: () => objetoPassadoPorParametro }.
+const createMenu = () => {
+  return { fetchMenu: () => {} }
+};
 //
 // Agora faça o TESTE 4 no arquivo `tests/restaurant.spec.js`.
 
@@ -79,6 +93,5 @@
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-const createMenu = () => {};
 
 module.exports = createMenu;
