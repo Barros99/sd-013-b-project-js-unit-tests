@@ -17,10 +17,10 @@
 
 const createStudent = (string) => ({
   name: string,
-  feedback: () => "Eita pessoa boa!",
+  feedback: () => 'Eita pessoa boa!'
 });
 
-const estudante = createStudent("Leandrão, o Lobo Solitário");
+const estudante = createStudent('Leandrão, o Lobo Solitário');
 
 console.log(estudante.name);
 console.log(estudante.feedback());
