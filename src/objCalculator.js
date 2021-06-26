@@ -25,5 +25,4 @@ const calculator = {
   mult: (number1, number2) => Math.floor(number1 * number2),
   sub: (number1, number2) => Math.floor(number1 - number2),
 };
-
 module.exports = calculator;
