@@ -55,14 +55,18 @@
 */
 
 /* PASSO 2:
-// Adicione ao objeto retornado por `createMenu` uma chave `consumption` que, como valor inicial, tem um array vazio.
+// Adicione ao objeto retornado por `createMenu` uma chave `consumption` que,
+como valor inicial, tem um array vazio.
 //
 // Agora faça o TESTE 5 no arquivo `tests/restaurant.spec.js`.
 */
 
 /* PASSO 3:
-// Crie uma função, separada da função `createMenu()`, que, dada uma string recebida por parâmetro, 
-// adiciona essa string ao array de `objetoRetornado.consumption`. Adicione essa função à chave `order`.
+// Crie uma função, separada da função `createMenu()`,
+// que, dada uma string recebida por parâmetro, 
+// adiciona essa string ao array de `objetoRetornado.consumption`.
+
+// Adicione essa função à chave `order`.
 // DICA: para criar isso, você pode: 
 // - Definir a função `createMenu()`
 // - Definir o objeto que a `createMenu()` retorna, mas separadamente 
@@ -86,15 +90,22 @@
 
 const menu = { food: {}, drink: {} };
 
+function getStr(string) {
+  this.consumption.push(string);
+}
+
 const createMenu = (menuReceived) => {
   const objectReturn = {
-    fetchMenu: () => menuReceived,
     consumption: [],
+    fetchMenu: () => menuReceived,
+    order: getStr,
   };
 
   return objectReturn;
 };
 
-// console.log(createMenu(menu).consumption);
+// console.log(xfunc);
+
+
 
 module.exports = createMenu;
