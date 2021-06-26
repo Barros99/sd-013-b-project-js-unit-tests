@@ -12,12 +12,22 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
+const numbers = require("./numbers");
+
 const average = (array) => {
   let summation = 0;
+  if (array.length === 0) {
+    return undefined;
+  }
   for (let index = 0; index < array.length; index += 1) {
+    if (typeof(array[index]) !== 'number') {
+      return undefined;
+    }
     summation += array[index];
   }
-  return Math.top(summation / array.length);
+  return Math.round(summation / array.length);
 };
+
+average([1, 1]);
 
 module.exports = average;
