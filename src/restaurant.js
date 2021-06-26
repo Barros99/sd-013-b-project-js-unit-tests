@@ -91,8 +91,8 @@ como valor inicial, tem um array vazio.
 // quanto o objeto da chave `drink`.
 */
 const menu = {
-  food: { coxinha: 3.90, sanduiche: 9.90},
-  drinks: { coca: 4.90, cerveja: 6.90},
+  food: { coxinha: 3.90, sanduiche: 9.90 },
+  drinks: { coca: 4.90, cerveja: 6.90 },
 };
 
 function getStr(string) {
@@ -107,20 +107,16 @@ const createMenu = (menuReceived) => {
     pay: () => {
       let total = 0;
       for (let value of objectReturn.consumption) {
-        console.log(value);
         if (objectReturn.fetchMenu().food[value]) {
-          console.log(objectReturn.fetchMenu().food[value]);
           total += objectReturn.fetchMenu().food[value];
         }
         if (objectReturn.fetchMenu().drinks[value]) {
-          console.log(objectReturn.fetchMenu().drinks[value]);
           total += objectReturn.fetchMenu().drinks[value];
         }
       }
-      return total;
+      return parseFloat(total.toFixed(2));
     },
   };
-  console.log('b');
   return objectReturn;
 };
 
@@ -129,23 +125,5 @@ const restaurant = createMenu(menu);
 restaurant.order('coxinha');
 restaurant.order('coca');
 restaurant.order('coxinha');
-
-const valor = 'coxinha';
-
-// console.log(restaurant);
-
-/*
-  console.log('restaurant.fetchMenu()');
-  console.log(restaurant.fetchMenu());
-  console.log();
-  console.log('restaurant.fetchMenu().food');
-  console.log(restaurant.fetchMenu().food);
-  console.log();
-  console.log('restaurant.fetchMenu().food[valor]');
-  console.log(restaurant.fetchMenu().food[valor]);
-  console.log();
-*/
-
-console.log(restaurant.pay());
 
 module.exports = createMenu;

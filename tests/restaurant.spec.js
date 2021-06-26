@@ -155,8 +155,6 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     meuRestaurante.order('agua');
     meuRestaurante.order('coxinha');
     assert.strictEqual(meuRestaurante.pay(), 11.7);
-    // Retorno: somaDosPreçosDosPedidos
-
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
   });
 });
