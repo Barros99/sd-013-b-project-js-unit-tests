@@ -20,7 +20,7 @@ const numbers = (myArray) => {
 
 const assert = require('assert');
 
-assert.strictEqual(numbers([2,3,4]), true)
-assert.strictEqual(numbers([2,'errado',5]), false)
+assert.strictEqual(numbers([2, 3, 4]), true);
+assert.strictEqual(numbers([2, 'errado', 5]), false);
 
 module.exports = numbers;
