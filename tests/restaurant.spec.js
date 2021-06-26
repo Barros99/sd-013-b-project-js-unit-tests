@@ -49,7 +49,7 @@ const createMenu = require('../src/restaurant');
 describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
   it('Verifica se a função `createMenu` tem o comportamento esperado', () => {
     const menu = { food: {}, drink: {} }
-    const createMenuObject = createMenu(menu); // Retorno: { fetchMenu: () => {}, ... }
+    let createMenuObject = createMenu(menu); // Retorno: { fetchMenu: () => {}, ... }
 
     // TESTE 1: Verifique que a função createMenu() é um objeto
     // e que contém a chave fetchMenu() e que esta chave é uma função
@@ -119,22 +119,44 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
 
     // Agora faça o TESTE 7 deste arquivo.
     // --------------------------------------------------------------------------------------
-    // TESTE 7: Verifique que a função `order` aceita que pedidos repetidos sejam acrescidos a consumption.
+    // TESTE 7: Verifique que a função `order` aceita que pedidos repetidos
+    // sejam acrescidos a consumption.
     // ```
     // objetoRetornado.order('coxinha');
     // objetoRetornado.order('agua');
     // objetoRetornado.order('coxinha');
     // objetoRetornado.comsuption // Retorno: ['coxinha', 'agua', 'coxinha']
     // ```
+    createMenuObject = createMenu(menu);
+
+    createMenuObject.order('coxinha');
+    createMenuObject.order('agua');
+    createMenuObject.order('coxinha');
+    createMenuObject.comsuption // Retorno: ['coxinha', 'agua', 'coxinha']
+    assert.deepStrictEqual(createMenuObject.consumption, ["coxinha", "agua", "coxinha"]);
+
     // Agora faça o TESTE 8 deste arquivo.
     // --------------------------------------------------------------------------------------
-    // TESTE 8: Verifique que, ao chamar `objetoRetornado.pay()`, retorna-se a soma dos preços de tudo que foi pedido, conforme registrado em `objetoRetornado.consumption`
+    // TESTE 8: Verifique que, ao chamar `objetoRetornado.pay()`,
+    // retorna-se a soma dos preços de tudo que foi pedido,
+    // conforme registrado em `objetoRetornado.consumption`
     // ```
     // objetoRetornado.order('coxinha');
     // objetoRetornado.order('agua');
     // objetoRetornado.order('coxinha');
     // objetoRetornado.pay() // Retorno: somaDosPreçosDosPedidos
     // ```
+    const meuRestaurante = createMenu({
+      food: {'coxinha': 3.90, 'sanduiche': 9.90},
+      drinks: {'agua': 3.90, 'cerveja': 6.90}
+    });
+
+    meuRestaurante.order('coxinha');
+    meuRestaurante.order('agua');
+    meuRestaurante.order('coxinha');
+    assert.strictEqual(meuRestaurante.pay(), 11.7);
+    // Retorno: somaDosPreçosDosPedidos
+
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
   });
 });

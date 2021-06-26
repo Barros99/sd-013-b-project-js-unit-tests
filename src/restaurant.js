@@ -83,12 +83,17 @@ como valor inicial, tem um array vazio.
 */
 
 /* PASSO 4:
-// Adicione ao objeto retornado por `createMenu()` uma chave `pay` com uma função que varre todo os itens de `objetoRetornado.consumption`, 
-// soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
-// você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
+// Adicione ao objeto retornado por `createMenu()` uma chave `pay`
+// com uma função que varre todo os itens de `objetoRetornado.consumption`,
+// soma o preço de todos checando-os no menu
+// e retorna o valor somado acrescido de 10%.
+// DICA: para isso, você precisará varrer tanto o objeto da chave `food`
+// quanto o objeto da chave `drink`.
 */
-
-const menu = { food: {}, drink: {} };
+const menu = {
+  food: {'coxinha': 3.90, 'sanduiche': 9.90},
+  drinks: {'coca': 4.90, 'cerveja': 6.90}
+};
 
 function getStr(string) {
   this.consumption.push(string);
@@ -99,13 +104,48 @@ const createMenu = (menuReceived) => {
     consumption: [],
     fetchMenu: () => menuReceived,
     order: getStr,
+    pay: () => {
+      let total = 0;
+      for (let value of objectReturn.consumption) {
+        console.log(value);
+        if (objectReturn.fetchMenu().food[value]) {
+          console.log(objectReturn.fetchMenu().food[value]);
+          total += objectReturn.fetchMenu().food[value];
+        }
+        if (objectReturn.fetchMenu().drinks[value]) {
+          console.log(objectReturn.fetchMenu().drinks[value]);
+          total += objectReturn.fetchMenu().drinks[value];
+        }
+      }
+      return total;
+    },
   };
-
+  console.log('b');
   return objectReturn;
 };
 
-// console.log(xfunc);
+const restaurant = createMenu(menu);
 
+restaurant.order('coxinha');
+restaurant.order('coca');
+restaurant.order('coxinha');
 
+const valor = 'coxinha';
+
+// console.log(restaurant);
+
+/*
+  console.log('restaurant.fetchMenu()');
+  console.log(restaurant.fetchMenu());
+  console.log();
+  console.log('restaurant.fetchMenu().food');
+  console.log(restaurant.fetchMenu().food);
+  console.log();
+  console.log('restaurant.fetchMenu().food[valor]');
+  console.log(restaurant.fetchMenu().food[valor]);
+  console.log();
+*/
+
+console.log(restaurant.pay());
 
 module.exports = createMenu;
