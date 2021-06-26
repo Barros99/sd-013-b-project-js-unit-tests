@@ -13,11 +13,11 @@
 */
 
 const average = (array) => {
-  const summation = 0;
-  for (const index = 0; index < array.length; index += 1) {
-    summation += array[index] 
+  let summation = 0;
+  for (let index = 0; index < array.length; index += 1) {
+    summation += array[index];
   }
-  return Math.top (summation/array.length)
+  return Math.top(summation / array.length);
 };
 
 module.exports = average;
