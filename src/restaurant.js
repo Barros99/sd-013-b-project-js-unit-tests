@@ -91,8 +91,8 @@ como valor inicial, tem um array vazio.
 // quanto o objeto da chave `drink`.
 */
 const menu = {
-  food: {'coxinha': 3.90, 'sanduiche': 9.90},
-  drinks: {'coca': 4.90, 'cerveja': 6.90}
+  food: { coxinha: 3.90, sanduiche: 9.90},
+  drinks: { coca: 4.90, cerveja: 6.90},
 };
 
 function getStr(string) {
