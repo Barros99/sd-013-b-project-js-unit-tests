@@ -58,12 +58,12 @@
  // PASSO 1: Crie uma função `createMenu()` que, dado um objeto passado por parâmetro, retorna um objeto com o seguinte formato: { fetchMenu: () => objetoPassadoPorParametro }.
 
 
-const createMenu = (objeto) => {
+const createMenu = (objetoRecebido) => {
 
   return { 
     fetchMenu: () => { 
       return {
-        objeto
+        objetoRecebido
       }
     } 
   }
