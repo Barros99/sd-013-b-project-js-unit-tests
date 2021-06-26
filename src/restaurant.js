@@ -57,15 +57,7 @@
  
  // PASSO 1: Crie uma função `createMenu()` que, dado um objeto passado por parâmetro, retorna um objeto com o seguinte formato: { fetchMenu: () => objetoPassadoPorParametro }.
 
-const createMenu = (objetoRecebido) => {
-  return { 
-    fetchMenu: () => { 
-      return {
-        objetoRecebido,
-      };
-    },
-  };
-};
+const createMenu = (objetoRecebido) => { ({ fetchMenu: () => { ({objetoRecebido,}) }, }) };
 
 // console.log(createMenu({ food: {}, drink: {} }).fetchMenu().objeto);
 //
