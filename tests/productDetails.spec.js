@@ -1,5 +1,5 @@
-const assert = require('assert');
-const productDetails = require('../src/productDetails');
+const assert = require("assert");
+const productDetails = require("../src/productDetails");
 
 /*
   Dadas duas strings que representam nomes de produtos, retorne um array contendo dois objetos com os detalhes dos respectivos produtos.
@@ -28,10 +28,18 @@ const productDetails = require('../src/productDetails');
   OBS: Lembre-se que você não precisa se preocupar com o describe e o it por enquanto, isso será aprendido posteriormente.
 */
 
-describe('6 - Implemente os casos de teste para a função `productDetails`', () => {
-  it('Verifica se a função `productDetails` tem o comportamento esperado', () => {
-    assert.fail();
+describe("6 - Implemente os casos de teste para a função `productDetails`", () => {
+  it("Verifica se a função `productDetails` tem o comportamento esperado", () => {
     // ESCREVA SEUS TESTES ABAIXO:
+    assert.deepStrictEqual(Array.isArray(productDetails()), true);
+    assert.deepStrictEqual(productDetails().includes(["1", "2"]), false);
+    assert.deepStrictEqual(Array.isArray(productDetails([{}])), true);
+    assert.deepStrictEqual(Array.isArray(productDetails(["1" !== "2"])), true);
+    assert.deepStrictEqual(
+      Array.isArray(productDetails([{ productId: "123" }])),
+      true
+    );
+
     // Teste que o retorno da função é um array.
     // Teste que o array retornado pela função contém dois itens dentro.
     // Teste que os dois itens dentro do array retornado pela função são objetos.
