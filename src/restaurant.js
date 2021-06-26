@@ -90,11 +90,6 @@ como valor inicial, tem um array vazio.
 // DICA: para isso, você precisará varrer tanto o objeto da chave `food`
 // quanto o objeto da chave `drink`.
 */
-const menu = {
-  food: { coxinha: 3.90, sanduiche: 9.90 },
-  drinks: { coca: 4.90, cerveja: 6.90 },
-};
-
 function getStr(string) {
   this.consumption.push(string);
 }
@@ -119,11 +114,5 @@ const createMenu = (menuReceived) => {
   };
   return objectReturn;
 };
-
-const restaurant = createMenu(menu);
-
-restaurant.order('coxinha');
-restaurant.order('coca');
-restaurant.order('coxinha');
 
 module.exports = createMenu;
