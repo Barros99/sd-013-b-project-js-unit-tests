@@ -28,18 +28,20 @@ describe('4 - Implemente os casos de teste para a função `circle`', () => {
     // assert.fail();
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste se circle retorna um objeto.
-    const circle = circle(radius);
-    const circleNull = circle();
-    assert.strictEqual(typeof circle, 'object');
+    const circulo = circle(4);
+    assert.strictEqual(typeof circulo, 'object');
     // Teste se o objeto retornado tem 3 entradas.
-    assert.strictEqual(Object.keys(circle).length, 3);
+    assert.strictEqual(Object.keys(circulo).length, 3);
     // Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
+    const circleNull = circle();
     assert.strictEqual(circleNull, undefined);
     // Teste que a função retorna, dentro de um objeto, a circunferência correta para um círculo de raio 2.
-    assert.strictEqual(circle.circumference, 78,8768);
+    const circulo2 = circle(2);
+    assert.strictEqual(circulo2.circumference, parseFloat('12.56'));
     // Teste que a função retorna, dentro de um objeto, a área correta para um círculo de raio 3.
-    assert.strictEqual(circle.area, 28,26);
+    const circulo3 = circle(3);
+    assert.strictEqual(circulo3.area, parseFloat('28.259999999999998'));
     // Teste que a função retorna, num objeto, os dados corretos de um círculo de raio 3.
-    assert.strictEqual(circle.radius, 3);
+    assert.strictEqual(circulo3.radius, 3);
   });
 });
