@@ -20,7 +20,7 @@ const assert = require('assert');
 */
 
 const limitDecimals = (expresssion, amountDecimals) =>
-  parseFloat(expresssion).toFixed(amountDecimals);
+  Number(parseFloat(expresssion).toFixed(amountDecimals));
 
 const circle = (radius) => {
   const PI = 3.14;
