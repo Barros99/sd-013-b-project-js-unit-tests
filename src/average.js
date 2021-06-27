@@ -15,14 +15,14 @@
 const average = (array) => { 
   let somaelementos = 0;
   if (array.length <= 0) {
-    return undefined
+    return undefined;
   }
   
   for (let index = 0; index < array.length; index += 1) {
     if (typeof array[index] !== 'number') {
       return undefined;
     }
-    somaelementos = somaelementos + array[index];
+    somaelementos += array[index];
   }
   return Math.round(somaelementos / array.length);
 };
