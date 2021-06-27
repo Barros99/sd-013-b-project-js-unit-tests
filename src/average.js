@@ -12,8 +12,23 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {
-  // qualquer coisa
+const average = (array) => { 
+  let somaelementos = 0;
+  if (array.length <= 0) {
+    return undefined
+  }
+  
+  for (let index = 0; index < array.length; index += 1) {
+    if (typeof array[index] !== 'number') {
+      return undefined;
+    }
+    somaelementos = somaelementos + array[index];
+  }
+  return Math.round(somaelementos / array.length);
 };
+console.log(average([]));
+
+// referencia [Math Object]: https://www.w3schools.com/js/js_math.asp
+// referencia [typeOf values JS]: https://www.w3schools.com/js/js_typeof.asp
 
 module.exports = average;
