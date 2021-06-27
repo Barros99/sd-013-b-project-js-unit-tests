@@ -21,8 +21,7 @@ const createStudent = (nome) => {
       if (nome !== null) {
       return 'Eita pessoa boa!';
       }
-    },
-    
+    },    
   };
   object.name = nome;
   return object;
