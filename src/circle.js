@@ -19,6 +19,9 @@ const assert = require('assert');
         Use esse conhecimento para te ajudar a lidar com possíveis problemas que esses testes trarão!
 */
 
+const limitDecimals = (expresssion, amountDecimals) =>
+  parseFloat(expresssion).toFixed(amountDecimals);
+
 const circle = (radius) => {
   const PI = 3.14;
   if (!radius) {
@@ -26,28 +29,27 @@ const circle = (radius) => {
   }
   return {
     radius,
-    area: PI * radius * radius,
-    circumference: 2 * PI * radius,
+    area: limitDecimals(PI * radius * radius, 2),
+    circumference: limitDecimals(2 * PI * radius, 2),
   };
 };
 
 module.exports = circle;
-// console.log(Object.entries(circle(3)), { radius: 2, area: 12.56, circumference: 12.56 });
 assert.strictEqual(typeof circle(10), 'object');
 assert.deepStrictEqual(circle(5), {
   radius: 5,
-  area: 78.5,
-  circumference: 31.400000000000002,
+  area: limitDecimals(78.5, 2),
+  circumference: limitDecimals(31.4, 2),
 });
 assert.strictEqual(circle(), undefined);
 assert.deepStrictEqual(circle(2), {
   radius: 2,
-  area: 12.56,
-  circumference: 12.56,
+  area: limitDecimals(12.56, 2),
+  circumference: limitDecimals(12.56, 2),
 });
-assert.ok(circle(3), { area: 28.259999999999998 });
+assert.ok(circle(3), { area: limitDecimals(28.26, 2) });
 assert.deepStrictEqual(circle(3), {
   radius: 3,
-  area: 28.259999999999998,
-  circumference: 18.84,
+  area: limitDecimals(28.26, 2),
+  circumference: limitDecimals(18.84, 2),
 });
