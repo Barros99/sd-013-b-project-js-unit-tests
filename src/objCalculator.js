@@ -26,4 +26,9 @@ const calculator = {
   sub: (num1, num2) => num1 - num2,
 };
 
+// console.log(calculator.add(5, 8));
+// console.log(calculator.mult(3, 2));
+// console.log(calculator.div(5, 2));
+// console.log(calculator.sub(7, 4));
+
 module.exports = calculator;
