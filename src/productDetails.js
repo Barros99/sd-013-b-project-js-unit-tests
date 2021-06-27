@@ -40,3 +40,4 @@ const productDetails = (firstProduct, secondProduct) => [
 ];
 
 module.exports = productDetails;
+console.log(Array.isArray(productDetails('a', 'b')));
