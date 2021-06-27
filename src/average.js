@@ -11,9 +11,31 @@
     - average([1, 1]) // Retorno: 1;
     - average([1, '2']) // Retorno: undefined;
 */
+const sum = (numbers) => {
+  let total = 0;
+  for (let num of numbers) {
+    total += num;
+  }
+  return total;
+};
 
-const average = () => {};
+const checkDefined = (numbers) => {
+  if (numbers.length < 1) {
+    return 'notNumber';
+  }
+
+  for (let num of numbers) {
+    if (typeof (num) !== 'number') {
+      return 'notNumber';
+    }
+  }
+};
+
+const average = (numbers) => {
+  const total = Math.round(sum(numbers) / numbers.length);
+  const result = checkDefined(numbers) === 'notNumber' ? undefined : total;
+
+  return result;
+};
 
 module.exports = average;
-
-/* a */
