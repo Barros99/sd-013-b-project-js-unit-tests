@@ -79,6 +79,28 @@
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-const createMenu = () => {};
+const createMenu = (objeto) => ({
+  fetchMenu: () => objeto,
+  consumption: [],
+  order: function (string) {this.consumption.push(string)},
+  pay: function () {
+    let finalPay = 0;
+    const searchedItemFood = Object.keys(this.fetchMenu().food);
+    const searchedPriceFood = Object.values(this.fetchMenu().food);
+    const searchedItemDrinks = Object.keys(this.fetchMenu().drink);
+    const searchedPriceDrinks = Object.values(this.fetchMenu().drink);
+    for (let index = 0; index < this.consumption.length; index += 1) {
+      for (let index2 = 0; index2 < ((searchedItemFood.length > searchedPriceDrinks.length) ? searchedPriceFood.length : searchedPriceDrinks.length); index2 += 1) {
+        if (this.consumption[index] === searchedItemFood[index2]) {
+          finalPay += searchedPriceFood[index2];
+        };
+        if (this.consumption[index] === searchedItemDrinks[index2]) {
+          finalPay += searchedPriceDrinks[index2];
+        };
+      };
+    };
+    return finalPay;
+  },
+});
 
 module.exports = createMenu;
