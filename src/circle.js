@@ -25,7 +25,7 @@ const circle = (radius) => {
   return {
     radius,
     area: Number(parseFloat((PI * radius * radius).toPrecision(5))),
-    circumference: 2 * PI * radius,
+    circumference: Number(parseFloat((2 * PI * radius).toPrecision(5))),
   };
 };
 
