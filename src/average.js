@@ -1,4 +1,4 @@
-const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+const numbers = [47, 63, 122];
 /*
   A função average recebe um array (tamanho variável) e retorna a média dos valores recebidos.
   Caso a função receba algum valor não númerico ou um array vazio,
@@ -20,6 +20,10 @@ const average = (array) => {
     return undefined;
   }
 
+  if (array === null) {
+    return undefined;
+  }
+
   for (let i = 0; i < array.length; i += 1) {
     if (typeof (array[i]) !== 'number') {
       return undefined;    
@@ -29,5 +33,7 @@ const average = (array) => {
   let avarage = sum / array.length;
   return Math.round(avarage);
 };
+
+console.log(average(numbers));
 
 module.exports = average;
