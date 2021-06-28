@@ -3,7 +3,7 @@
 /* eslint-disable no-redeclare */
 /* eslint-disable vars-on-top */
 
-const { addLooseExports } = require("acorn");
+const { addLooseExports } = require('acorn');
 
 /*
   A função myCounter possui dois loops aninhados que inserem valores dentro de um array.
@@ -21,7 +21,7 @@ const myCounter = () => {
   let myArray = [];
   for (let counter = 0; counter <= 3; counter += 1) {
     myArray.push(counter);
-    for (let counter = 2; counter <= 3; counter += 1) {
+    for (let index = 2; index <= 3; index += 1) {
       myArray.push(counter);
     }
   }
