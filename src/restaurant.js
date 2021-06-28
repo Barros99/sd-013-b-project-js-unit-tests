@@ -78,7 +78,53 @@
 // PASSO 4: Adicione ao objeto retornado por `createMenu()` uma chave `pay` com uma função que varre todo os itens de `objetoRetornado.consumption`, 
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
+let restaurant = {};
 
-const createMenu = () => {};
+const consumptionAdd = (orderAdd) => {
+  restaurant.consumption.push(orderAdd);
+  return restaurant.consumption;
+};
+
+function billMaker(bill, menu) {
+let food = Object.values(menu)[0];
+let drink = Object.values(menu)[1];
+let bougth = restaurant.consumption;
+for (let index = 0; index < restaurant.consumption.length; index += 1) {
+  if (typeof food[bougth[index]] === 'number') {
+    bill += food[bougth[index]];
+  }
+  if (typeof drink[bougth[index]] === 'number') {
+    bill += drink[bougth[index]];
+  }
+}
+return parseFloat(bill).toFixed(2);
+}
+
+const createMenu = (param1) => {
+  let restaurantObj = {
+    menu: {
+      food: { coxinha: 3.90, sanduiche: 9.90 },
+      drinks: { agua: 3.90, cerveja: 6.90 },
+    },
+    fetchMenu: () => param1,
+    consumption: [],
+    order: (b) => consumptionAdd(b),
+    pay: () => {
+      let bill = 0; 
+      const getMenu = createMenu(restaurant.menu).fetchMenu();
+      bill = parseFloat(billMaker(bill, getMenu));
+      const add = parseFloat((bill / 10).toFixed(2));
+      const billAdd = bill + add;
+      console.log(`Total a pagar: ${bill} + ${add} = ${(billAdd)}`);
+      return billAdd;
+    },
+  };
+  if (Object.keys(restaurant).length === 0) {
+    restaurant = restaurantObj;
+  } else {
+    restaurant.fetchMenu = restaurantObj.fetchMenu;
+  }
+  return restaurant;
+};
 
 module.exports = createMenu;
