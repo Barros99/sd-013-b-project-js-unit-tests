@@ -98,10 +98,9 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     // Agora faça o PASSO 3 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
     // TESTE 6: Verifique que as três orders seguintes, de bebidas e comidas mescladas, somam três itens no array `objetoRetornado.consumption` conforme os itens pedidos.
-    assert.fail();
-    createMenu({ food: {}, drink: {} }).order('agua');
-    createMenu({ food: {}, drink: {} }).order('sopa');
-    createMenu({ food: {}, drink: {} }).order('sashimi');
+    objetoRetornado.order('agua');
+    objetoRetornado.order('sopa');
+    objetoRetornado.order('sashimi');
     assert.deepStrictEqual(objetoRetornado.consumption, ["coxinha", "agua", "sopa","sashimi"])
     // ```
     // objetoRetornado.order("coxinha");
@@ -113,8 +112,8 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     // Agora faça o TESTE 7 deste arquivo.
     // --------------------------------------------------------------------------------------
     // TESTE 7: Verifique que a função `order` aceita que pedidos repetidos sejam acrescidos a consumption.
-    createMenu({ food: {}, drink: {} }).order('agua')
-    createMenu({ food: {}, drink: {} }).order('coxinha')
+    objetoRetornado.order('agua')
+    objetoRetornado.order('coxinha')
     assert.deepStrictEqual(objetoRetornado.consumption, ["coxinha", "agua", "sopa","sashimi","agua","coxinha"])
     // ```
     // objetoRetornado.order('coxinha');
@@ -125,7 +124,7 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     // Agora faça o TESTE 8 deste arquivo.
     // --------------------------------------------------------------------------------------
     // TESTE 8: Verifique que, ao chamar `objetoRetornado.pay()`, retorna-se a soma dos preços de tudo que foi pedido, conforme registrado em `objetoRetornado.consumption`
-            //CONTINUAR AQUI 
+    assert.fail()
     // ```
     // objetoRetornado.order('coxinha');
     // objetoRetornado.order('agua');
