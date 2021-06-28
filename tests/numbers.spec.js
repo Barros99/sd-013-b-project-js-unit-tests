@@ -26,6 +26,6 @@ describe('2 - Implemente os casos de teste para a função `numbers`', () => {
     // Escreva um teste em que a função recebe [1, 'a', 3] e retorna false
     assert.strictEqual(numbers(['a',2,3,4,5]), false ,true, true, true ,true );
     // Escreva um teste em que a função recebe [' '] e retorna false
-    assert.strictEqual(numbers([' ']), false );
+    assert.strictEqual(numbers([' ']), false ); 
   });
 });
