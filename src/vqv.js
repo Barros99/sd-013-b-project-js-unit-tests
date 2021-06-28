@@ -17,11 +17,18 @@
 */
 
 const vqv = (nome, idade) => {
-  const frase = `Oi, meu nome é ${nome}!
-  Tenho ${idade} anos,
-  trabalho na Trybe e mando muito em programação!
-  #VQV!`;
-  console.log(frase);
+  if (!nome || !idade) {
+    return undefined;
+  }
+
+  let frase = `Oi, meu nome é ${nome}!\n`;
+  frase += `Tenho ${idade} anos,\n`;
+  frase += 'trabalho na Trybe e mando muito em programação!\n';
+  frase += '#VQV!';
+
+  return frase;
 };
 
 module.exports = vqv;
+
+// Código ensinado pelo colega de classe Lucas Caribé.
