@@ -16,6 +16,20 @@
       #VQV!'
 */
 
-const vqv = (nome, idade) => {};
+// TDD
+// 1.Faço teste falhar
+// 2.Faço teste passar
+// 3.Refatoro
+const vqv = (nome, idade) => {
+  if (nome === undefined || idade === undefined) {
+    return undefined;
+  }
+return `Oi, meu nome é ${nome}!
+Tenho ${idade} anos,
+trabalho na Trybe e mando muito em programação!
+#VQV!`;
+};
 
 module.exports = vqv;
+
+console.log(vqv('Hamaji', 29));
