@@ -132,7 +132,8 @@ const pay = { pay: (menu2) => {
   const drinkKeys = Object.keys(menuDrink);
   const drinkValue = Object.values(menuDrink);
   const sum2 = calcDrink(pedidos, drinkKeys, drinkValue);
-  return sum1 + sum2;
+  const total = parseFloat(((sum1 + sum2) * 1.1).toFixed(2));
+  return total;
 } };
 
 Object.assign(createMenu, pay);

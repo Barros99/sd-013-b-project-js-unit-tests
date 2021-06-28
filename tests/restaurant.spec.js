@@ -116,13 +116,13 @@ describe('9 - Implemente os casos de teste e a função `createMenu`', () => {
     // --------------------------------------------------------------------------------------
     // TESTE 8: Verifique que, ao chamar `objetoRetornado.pay()`, retorna-se a soma dos preços de tudo que foi pedido, conforme registrado em `objetoRetornado.consumption`
     // ```
-    const restaurant = createMenu({ food: { coxinha: 3.9, sopa: 9.9 }, drink: { agua: 3.9, cerveja: 6.9 } })
+    const restaurant = createMenu({ food: { coxinha: 3.9, sopa: 9.9 }, drink: { agua: 3.9, cerveja: 6.9 } });
     // objetoRetornado.order('coxinha');
     // objetoRetornado.order('agua');
     // objetoRetornado.order('coxinha');
     // objetoRetornado.pay() // Retorno: somaDosPreçosDosPedidos
     // ```
-    assert.deepStrictEqual(createMenu.pay(restaurant), 11.70);
+    assert.deepStrictEqual(createMenu.pay(restaurant), 12.87);
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
   });
 });
