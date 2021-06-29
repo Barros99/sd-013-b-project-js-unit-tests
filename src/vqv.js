@@ -30,8 +30,6 @@ const vqv = (nome, idade) => {
   return undefined;
 };
 
-//console.log(vqv('luis', 10));
+// console.log(vqv('luis', 10));
 
 module.exports = vqv;
-
-
