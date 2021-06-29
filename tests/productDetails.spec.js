@@ -45,9 +45,10 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     assert.deepStrictEqual(typeof (Object.keys(productDetailsCopy)), 'object');
 
     // Teste que os dois objetos são diferentes entre si.
-
-    assert.notDeepStrictEqual((Object.entries(productDetailsCopy)[0]), (Object.entries(productDetailsCopy)[1]));
+    assert.deepStrictEqual(productDetailsCopy[0] !== productDetailsCopy[1], true);
 
     // Teste que os dois productIds terminam com 123.
+    assert.deepStrictEqual(productDetailsCopy[0].details.productId.endsWith('123'), true);
+    assert.deepStrictEqual(productDetailsCopy[1].details.productId.endsWith('123'), true);
   });
 });
