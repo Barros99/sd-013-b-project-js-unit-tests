@@ -18,7 +18,17 @@
   calculator.add(1, 1) // Retorno: 2;
   calculator.div(3, 2) // Retorno: 1;
 */
+const somar = (num1, num2) => parseInt(num1 + num2, 10);
+const multiplicar = (num1, num2) => parseInt(num1 * num2, 10);
+const dividir = (num1, num2) => parseInt(num1 / num2, 10);
+const subtrair = (num1, num2) => parseInt(num1 - num2, 10); 
 
-const calculator = {};
+const calculator = {
+  add: somar,
+  mult: multiplicar,
+  div: dividir,
+  sub: subtrair,
+};
 
+console.log(calculator.add(91, 1));
 module.exports = calculator;
