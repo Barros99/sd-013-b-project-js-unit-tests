@@ -45,7 +45,8 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     // Teste que os dois productIds terminam com 123.
     const endFirstObject = productArray[0];
     const endSecondObject = productArray[1];
-    assert.deepStrictEqual(endFirstObject.details.productId.endsWith('123'),
+    // Refer: https://www.w3schools.com/jsref/jsref_endswith.asp
+    assert.deepStrictEqual(endFirstObject.details.productId.endsWith('123'),    
     endSecondObject.details.productId.endsWith('123'),
     'Erro: ID(s) do(s) produto(s) com terminação diferente de 123');
   });
