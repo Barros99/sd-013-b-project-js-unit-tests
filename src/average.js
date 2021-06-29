@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 /*
   A função average recebe um array (tamanho variável) e retorna a média dos valores recebidos.
   Caso a função receba algum valor não númerico ou um array vazio,
@@ -12,8 +13,22 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {
-  // Iniciando o projeto
+const average = (arrayOfNumbers) => {
+  let sum = 0;
+
+  if (arrayOfNumbers.length === 0) {
+    return undefined;
+  }
+
+  for (let index = 0; index < arrayOfNumbers.length; index += 1) {
+    if (typeof arrayOfNumbers[index] === 'number') {
+      sum += arrayOfNumbers[index];
+    } else {
+      return undefined;
+    }
+  }
+
+  return Math.round((sum / arrayOfNumbers.length));
 };
 
 module.exports = average;
