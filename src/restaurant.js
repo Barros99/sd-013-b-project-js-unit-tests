@@ -82,24 +82,17 @@
 const createMenu = (objeto) => ({
   fetchMenu: () => objeto,
   consumption: [],
-  order: function (string) {this.consumption.push(string)},
-  pay: function () {
+  order(string) { this.consumption.push(string); },
+  pay() {
     let finalPay = 0;
-    const searchedItemFood = Object.keys(this.fetchMenu().food);
-    const searchedPriceFood = Object.values(this.fetchMenu().food);
-    const searchedItemDrinks = Object.keys(this.fetchMenu().drink);
-    const searchedPriceDrinks = Object.values(this.fetchMenu().drink);
     for (let index = 0; index < this.consumption.length; index += 1) {
-      for (let index2 = 0; index2 < ((searchedItemFood.length > searchedPriceDrinks.length) ? searchedPriceFood.length : searchedPriceDrinks.length); index2 += 1) {
-        if (this.consumption[index] === searchedItemFood[index2]) {
-          finalPay += searchedPriceFood[index2];
-        };
-        if (this.consumption[index] === searchedItemDrinks[index2]) {
-          finalPay += searchedPriceDrinks[index2];
-        };
-      };
-    };
-    return finalPay;
+      if (this.fetchMenu().food[this.consumption[index]]) {
+        finalPay += this.fetchMenu().food[this.consumption[index]];
+      } else if (this.fetchMenu().drink[this.consumption[index]]) {
+        finalPay += this.fetchMenu().drink[this.consumption[index]];
+      }
+    }
+    return finalPay * 1.1;
   },
 });
 
