@@ -16,6 +16,22 @@
       #VQV!'
 */
 
-const vqv = (nome, idade) => {};
+const vqv = (nome, idade) => {
+  // se tiver ALGUM parâmetro
+  if (nome && idade !== undefined) {
+    let texto = `Oi, meu nome é ${nome}!\n`
+    + `Tenho ${idade} anos,\n` 
+    + 'trabalho na Trybe e mando muito em programação!\n'
+    + '#VQV!';
+
+    return texto; 
+  }
+  // se não tiver NENHUM parâmetro
+  return undefined;
+};
+
+//console.log(vqv('luis', 10));
 
 module.exports = vqv;
+
+
