@@ -12,8 +12,14 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {
-  // preparação para o commit inicial.
+const average = (array) => {
+  if (array.length === 0) return undefined;
+
+  if (array.some((num) => typeof num === 'string')) return undefined;
+
+  const soma = array.reduce((total, current) => total + current, 0);
+
+  return parseInt((soma / array.length).toFixed(0), 10);
 };
 
 module.exports = average;
