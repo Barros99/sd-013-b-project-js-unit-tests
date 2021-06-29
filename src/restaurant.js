@@ -82,12 +82,18 @@ function addOrder(order) {
   this.consumption.push(order);
 }
 
+function searchItem(menu, type, item) {
+  for (const food in menu[type]) {
+    if (food === item) {
+      return menu[type][food];
+    }
+  } 
+}
+
 function getPriceOfItem(menu, item) {
   for (const type in menu) {
-    for (const food in menu[type]) {
-      if (food === item) {
-        return menu[type][food];
-      }
+    if (Object.prototype.hasOwnProperty.call(menu, type)) {
+      return searchItem(menu, type, item);
     }
   }
 }
