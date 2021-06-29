@@ -79,9 +79,46 @@
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso,
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-// PASSO 1: Crie uma função `createMenu()` que, dado um objeto passado por parâmetro, retorna um objeto com o seguinte formato: { fetchMenu: () => objetoPassadoPorParametro }.
+// PASSO 3: Crie uma função, separada da função `createMenu()`, que, dada uma string recebida por parâmetro,
+// adiciona essa string ao array de `objetoRetornado.consumption`. Adicione essa função à chave `order`.
+// DICA: para criar isso, você pode:
+// - Definir a função `createMenu()`
+// - Definir o objeto que a `createMenu()` retorna, mas separadamente
+// - E, depois, definir a função que será atribuída a `order`.
+// ```
+// const restaurant = {}
+//
+// const createMenu = (myMenu) => // Lógica que edita o objeto `restaurant`
+//
+// const orderFromMenu = (request) => // Lógica que adiciona à chave `consumption` de `restaurant` a string recebida no parâmetro `request`.
+// // Essa função deve ser associada à chave `order` de `restaurant`
+// ```
+// Agora faça o TESTE 6 no arquivo `tests/restaurant.spec.js`.
 
-const createMenu = (objeto) => { return { fetchMenu: () => objeto; }};
-// eslint-disable-next-line sonarjs/no-use-of-empty-return-value
-console.log(createMenu({ nome: 'Jean' }));
+const limitDecimals = (expresssion, amountDecimals) =>
+  Number(parseFloat(expresssion).toFixed(amountDecimals));
+
+const restaurant = {};
+
+const orderFromMenu = (request) => restaurant.consumption.push(request);
+
+const createMenu = (objeto) => {
+  restaurant.fetchMenu = () => objeto;
+  restaurant.consumption = [];
+  restaurant.order = orderFromMenu;
+  restaurant.pay = () => {
+    const bill = restaurant.consumption.reduce((acc, item) => {
+      if (objeto.food[item]) {
+        return acc + objeto.food[item];
+      }
+      if (objeto.drink[item]) {
+        return acc + objeto.drink[item];
+      }
+      return acc;
+    }, 0);
+    return limitDecimals((bill + (bill * 10) / 100), 2);
+  };
+  return restaurant;
+};
+
 module.exports = createMenu;
