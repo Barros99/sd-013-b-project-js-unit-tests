@@ -83,9 +83,9 @@ const createMenu = (object) => {
   const objectMenu = {
     fetchMenu: () => object,
     consumption: [],
-    order: (orderMenu) => objectMenu.consumption.push(orderMenu),
+    order: (string) => objectMenu.consumption.push(string),
     pay: () => {
-      const restaurantBill = objectMenu.consumption.reduce((acc, curr) => {
+      const restaurantCheck = objectMenu.consumption.reduce((acc, curr) => {
         if (object.food[curr]) {
           return acc + object.food[curr];
         }
@@ -94,11 +94,10 @@ const createMenu = (object) => {
         }
         return acc;
       }, 0);
-      const finalPay = restaurantBill + (restaurantBill * 0, 10);
-      return finalPay;
+      return restaurantCheck;
     },
   };
-  return object;
+  return objectMenu;
 };
 
 module.exports = createMenu;
