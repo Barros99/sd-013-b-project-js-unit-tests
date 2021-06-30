@@ -62,12 +62,6 @@
  
  // PASSO 2: Adicione ao objeto retornado por `createMenu` uma chave `consumption` que, como valor inicial, tem um array vazio.
  //
-const createMenu = (objetoRecebido) => ({ 
-  fetchMenu: () => ({ objetoRecebido }),
-  consumption: []
-});
-// console.log(createMenu().consumption);
-// console.log(createMenu({ food: {}, drink: {} }).fetchMenu().objeto);
 // Agora faça o TESTE 5 no arquivo `tests/restaurant.spec.js`.
 
 //------------------------------------------------------------------------------------------
@@ -84,8 +78,33 @@ const createMenu = (objetoRecebido) => ({
 // const createMenu = (myMenu) => // Lógica que edita o objeto `restaurant`
 //
 // const orderFromMenu = (request) => // Lógica que adiciona à chave `consumption` de `restaurant` a string recebida no parâmetro `request`. 
-// // Essa função deve ser associada à chave `order` de `restaurant`
+// 
+// Essa função deve ser associada à chave `order` de `restaurant`
 // ```
+
+/** O parâmetro 'item' é enviado pelo teste quando a chave "order", é chamada. Como ela [order] é uma função, o parâmetro é passado para a função [pedidos]. 
+ * 
+ * O 'this' numa função, dentro do objeto, refere-se ao próprio 'objeto' em que ela está inserida.
+Isso se chama, propriedade computada, ou seja, só sabe o valor após ser executado, às vezes tem algo a retornar às vezes não. 
+*/
+
+function pedidos(item) {
+  this.consumption.push(item);  
+};
+
+const createMenu = (objetoRecebido) => ({ 
+  fetchMenu: () => ({objetoRecebido}),
+  consumption: [],
+  order: pedidos
+});
+
+// console.log(createMenu().consumption);
+// console.log(createMenu({ food: {}, drink: {} }).fetchMenu().objeto);
+// const objetoRetornado = createMenu();
+// objetoRetornado.order('coxinha');
+// console.log(objetoRetornado.consumption); // ['coxinha']
+
+
 // Agora faça o TESTE 6 no arquivo `tests/restaurant.spec.js`.
 
 //------------------------------------------------------------------------------------------
