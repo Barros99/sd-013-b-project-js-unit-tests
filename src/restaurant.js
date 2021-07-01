@@ -80,37 +80,71 @@
 // 
 // Essa função deve ser associada à chave `order` de `restaurant`
 // ```
+// Agora faça o TESTE 6 no arquivo `tests/restaurant.spec.js`.
+//------------------------------------------------------------------------------------------
+// PASSO 4: Adicione ao objeto retornado por `createMenu()` uma chave `pay` com uma função que varre todo os itens de `objetoRetornado.consumption`, 
+// soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
+// você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
+//------------------------------------------------------------------------------------------
 
-/** O parâmetro 'item' é enviado pelo teste quando a chave "order", é chamada. Como ela [order] é uma função, o parâmetro é passado para a função [pedidos]. 
+/** 
+ * O parâmetro 'item' é enviado pelo teste quando a chave "order", é chamada. Como ela [order] é uma função, o parâmetro é passado para a função [pedidos]. 
  * 
  * O 'this' numa função, dentro do objeto, refere-se ao próprio 'objeto' em que ela está inserida.
-Isso se chama, propriedade computada, ou seja, só sabe o valor após ser executado, às vezes tem algo a retornar às vezes não. 
+ * Isso se chama, propriedade computada, ou seja, só sabe o valor após ser executado, às vezes tem algo a retornar às vezes não. 
 */
 
 function pedidos(item) {
   this.consumption.push(item);  
 }
 
-const createMenu = (objetoRecebido) => ({ 
-  fetchMenu: () => ({ objetoRecebido }),
-  consumption: [],
-  order: pedidos,
-});
+/** o parâmetro 'objetoRecebido', é o 'objetoQualquer' que é passado por parâmetro, pelo teste, quando é feita a chamada da função createMenu() */
+const createMenu = (objetoRecebido) => {
+  let objetoMenu = {
+    fetchMenu: () => ({ objetoRecebido }),
+    consumption: [],
+    order: pedidos,
+    pay: () => {
+      let soma = 0;
+      for (i = 0; i < objetoMenu.consumption.length; i += 1) {
+        // retorna 'true' se a chave estiver contida em 'food' e entra na condição
+        if (objetoRecebido.food[objetoMenu.consumption[i]]) {
+          soma += objetoRecebido.food[objetoMenu.consumption[i]];
+          // senão, significa que o if retornou 'false', então é porque a chave é de 'drink', passando para condição final
+        } else {
+          soma += objetoRecebido.drink[objetoMenu.consumption[i]];
+        }
+      }
+      soma10 = (soma * 0.1) + soma;
+      return parseFloat((soma10).toPrecision(4));
+    },
+  }
+  return objetoMenu;
+};
 
-/*   
-  console.log(createMenu().consumption);
-  console.log(createMenu({ food: {}, drink: {} }).fetchMenu().objeto);
-  const objetoRetornado = createMenu();
-  objetoRetornado.order('coxinha');
-  console.log(objetoRetornado.consumption); // ['coxinha'] 
+// -----------------------------------------------------------------------
+// Usados para testar a função pay(), por aqui, com o play (Run code)
+// -----------------------------------------------------------------------
+// Precisará criar o objetoQualquer acima da createmenu()
+// const objetoRetornado = createMenu(objetoQualquer);
+// objetoRetornado.order('coxinha');
+// objetoRetornado.order('agua');
+// console.log(objetoRetornado.consumption);
+// console.log('CHAMADA DA PAY: ' + objetoRetornado.pay());
+// -----------------------------------------------------------------------
+
+/**
+ *  NO TRECHO ABAIXO FOI REALIZADO A SOMA DE TODOS OS VALORES PRESENTES NO OBJETO.
+    const consumoFood = Object.values(objetoRecebido.food);
+    const consumoDrink = Object.values(objetoRecebido.drink);
+    const somaFood = consumoFood.reduce((accumulator, currentValue) => {
+      return accumulator + currentValue;
+    });
+    const somaDrink = consumoDrink.reduce((accumulator, currentValue) => {
+      return accumulator + currentValue;
+    });
+    return somaFood + somaDrink;
+ *
 */
-
-// Agora faça o TESTE 6 no arquivo `tests/restaurant.spec.js`.
-
-//------------------------------------------------------------------------------------------
-
-// PASSO 4: Adicione ao objeto retornado por `createMenu()` uma chave `pay` com uma função que varre todo os itens de `objetoRetornado.consumption`, 
-// soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
-// você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
 module.exports = createMenu;
