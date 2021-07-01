@@ -23,15 +23,15 @@ const calculator = {
   add(number1, number2) {
     return number1 + number2;
   },
-  mult: function (number1, number2) {
+  mult(number1, number2) {
     return number1 * number2;
   },
-  div: function (number1, number2) {
-    return Math.floor(number1/number2);
+  div(number1, number2) {
+    return Math.floor(number1 / number2);
   },
-  sub: function (number1, number2) {
+  sub(number1, number2) {
     return number1 - number2;
-  }
+  },
 };
 
 module.exports = calculator;
