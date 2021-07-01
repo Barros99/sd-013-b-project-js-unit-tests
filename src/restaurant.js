@@ -106,7 +106,8 @@ const createMenu = (objetoRecebido) => {
     order: pedidos,
     pay: () => {
       let soma = 0;
-      for (i = 0; i < objetoMenu.consumption.length; i += 1) {
+      let soma10 = 0;
+      for (let i = 0; i < objetoMenu.consumption.length; i += 1) {
         // retorna 'true' se a chave estiver contida em 'food' e entra na condição
         if (objetoRecebido.food[objetoMenu.consumption[i]]) {
           soma += objetoRecebido.food[objetoMenu.consumption[i]];
@@ -121,6 +122,10 @@ const createMenu = (objetoRecebido) => {
   }
   return objetoMenu;
 };
+
+// -----------------------------------------------------------------------
+// const ALEF SLOAN = Obrigada pela ajuda no desenvolvimento da pay()! :D
+// -----------------------------------------------------------------------
 
 // -----------------------------------------------------------------------
 // Usados para testar a função pay(), por aqui, com o play (Run code)
