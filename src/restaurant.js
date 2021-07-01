@@ -119,7 +119,7 @@ const createMenu = (objetoRecebido) => {
       soma10 = (soma * 0.1) + soma;
       return parseFloat((soma10).toPrecision(4));
     },
-  }
+  };
   return objetoMenu;
 };
 
