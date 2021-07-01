@@ -20,18 +20,17 @@
 */
 
 const calculator = {
-  add: function (number1, number2) {
-    return number1 + number2
+  add(number1, number2) {
+    return number1 + number2;
   },
   mult: function (number1, number2) {
-    return number1 * number2
+    return number1 * number2;
   },
   div: function (number1, number2) {
-    total = (number1/number2)
-    return Math.floor(total)
+    return Math.floor(number1/number2);
   },
   sub: function (number1, number2) {
-    return number1 - number2
+    return number1 - number2;
   }
 };
 
