@@ -28,14 +28,25 @@ const productDetails = require('../src/productDetails');
   OBS: Lembre-se que você não precisa se preocupar com o describe e o it por enquanto, isso será aprendido posteriormente.
 */
 
+//  O primeiro teste retornava erro com typeof (null virava object). Esta nova função deve corrigir o problema.
+const toType = function (obj) {
+  return ({}).toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
+}
 describe('6 - Implemente os casos de teste para a função `productDetails`', () => {
   it('Verifica se a função `productDetails` tem o comportamento esperado', () => {
-    assert.fail();
     // ESCREVA SEUS TESTES ABAIXO:
+    const testCase = productDetails('Alcool gel', 'Máscara')
     // Teste que o retorno da função é um array.
+    assert.strictEqual(toType(testCase), 'array');
     // Teste que o array retornado pela função contém dois itens dentro.
+    assert.deepStrictEqual(testCase.length, 2);
     // Teste que os dois itens dentro do array retornado pela função são objetos.
+    assert.strictEqual(typeof(testCase[0]), 'object');
+    assert.strictEqual(typeof(testCase[1]), 'object');
     // Teste que os dois objetos são diferentes entre si.
+    assert.notDeepStrictEqual(testCase[0], testCase[1]);
     // Teste que os dois productIds terminam com 123.
+    assert.strictEqual(testCase[0].details.productId.endsWith('123'), true);
+    assert.strictEqual(testCase[1].details.productId.endsWith('123'), true);
   });
 });
