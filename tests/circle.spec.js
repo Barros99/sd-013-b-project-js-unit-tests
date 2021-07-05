@@ -33,10 +33,10 @@ describe('4 - Implemente os casos de teste para a função `circle`', () => {
     // Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
     assert.strictEqual(circle(), undefined);
     // Teste que a função retorna, dentro de um objeto, a circunferência correta para um círculo de raio 2.
-    assert.deepStrictEqual(circle(2), {radius: 2, area: 3.14 * 2 * 2, circumference: (2 * 3.14 * 2).toFixed(2)});
+    assert.strictEqual(circle(2).circumference, parseFloat((3.14 * 4).toPrecision(2)))
     // Teste que a função retorna, dentro de um objeto, a área correta para um círculo de raio 3.
-    assert.strictEqual(circle(3).area, 9 * 3.14);
+    assert.strictEqual(circle(),)
     // Teste que a função retorna, num objeto, os dados corretos de um círculo de raio 3.
-    assert.strictEqual(circle(3), {radius: 3, area: 3.14 * 3 * 3, circumference: (2 * 3.14 * 3).toFixed(2)});
+    assert.deepStrictEqual(circle(3), {radius: 3, area: parseFloat((3.14 * 3 * 3).toPrecision(2)), circumference: parseFloat((2 * 3.14 * 3).toPrecision(2))});
   });
 });
