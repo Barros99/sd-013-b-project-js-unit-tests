@@ -88,14 +88,18 @@ function searchItem(menu, type, item) {
       return menu[type][food];
     }
   } 
+  return undefined;
 }
 
 function getPriceOfItem(menu, item) {
-  for (const type in menu) {
-    if (Object.prototype.hasOwnProperty.call(menu, type)) {
-      return searchItem(menu, type, item);
+  let itemPrice = 0;
+  Object.keys(menu).forEach((type) => {
+    const price = searchItem(menu, type, item);
+    if (price !== undefined) {
+      itemPrice = price;
     }
-  }
+  });
+  return itemPrice;
 }
 
 function priceToPay() {
@@ -103,9 +107,9 @@ function priceToPay() {
   const menu = this.fetchMenu();
   this.consumption.forEach((element) => {
     const itemPrice = getPriceOfItem(menu, element);
+    console.log(itemPrice);
     totalPrice += itemPrice;
   });
-  console.log(totalPrice);
   return totalPrice * 1.1;
 }
 
