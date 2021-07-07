@@ -12,20 +12,25 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = array => {
-  let output = undefined;
+const averageFor = (array, output, sum) => {
+  for (let index = 0; index < array.length; index += 1) {
+    if (typeof array[index] !== 'number') {
+      output = undefined;
+      break;
+    } else {
+      const rounded = Math.round(array[index]);
+      sum += rounded;
+      output = Math.round(sum / array.length);
+    }
+  }
+  return output;
+};
+
+const average = (array) => {
+  let output;
   let sum = 0;
   if (array !== '') {
-    for (index = 0; index < array.length; index += 1) {
-      if (typeof array[index] !== 'number') {
-        output = undefined;
-        break;
-      } else {
-        const rounded = Math.round(array[index]);
-        sum += rounded;
-        output = Math.round(sum / array.length);
-      }
-    }
+    output = averageFor();
   }
   return output;
 };
