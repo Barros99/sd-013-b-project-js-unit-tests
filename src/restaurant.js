@@ -88,14 +88,15 @@ const checkPlease = (array, object) => {
     total += (drinkPrice === undefined) ? 0 : drinkPrice;
     total += (foodPrice === undefined) ? 0 : foodPrice;
   }
-  return total;
+  total += total + 0.1 * total;
+  return total.toFixed(2);
 };
 
 const createMenu = (parameterObject) => {
   const restaurant = { fetchMenu: () => parameterObject, 
                       consumption: [], 
                       order: (orderedItem) => { restaurant.consumption.push(orderedItem); },
-                      pay: () => { checkPlease(restaurant.consumption, restaurant.fetchMenu()); },
+                      pay: () => (checkPlease(restaurant.consumption, restaurant.fetchMenu())), 
                       };
   return restaurant;
 };
