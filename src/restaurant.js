@@ -86,7 +86,7 @@ const checkPlease = (array, object) => {
     let foodPrice = foods[orderedItems];
     let drinkPrice = drinks[orderedItems];
     total += (drinkPrice === undefined) ? 0 : drinkPrice;
-    total += (foodPrice === undefined) ? 0 : valueFood;
+    total += (foodPrice === undefined) ? 0 : foodPrice;
   }
   return total;
 };
