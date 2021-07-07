@@ -88,7 +88,7 @@ const checkPlease = (array, object) => {
     total += (drinkPrice === undefined) ? 0 : drinkPrice;
     total += (foodPrice === undefined) ? 0 : foodPrice;
   }
-  total += total + 0.1 * total;
+  total += 0.1 * total;
   return total.toFixed(2);
 };
 
