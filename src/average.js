@@ -30,7 +30,7 @@ const average = (array) => {
   let output;
   let sum = 0;
   if (array !== '') {
-    output = averageFor();
+    output = averageFor(array, output, sum);
   }
   return output;
 };

@@ -21,13 +21,15 @@ const vqv = (nome, idade) => {
   let output2;
   let output3;
   let output4;
+  let output5;
   if (nome !== undefined && idade !== undefined) {
     output1 = `Oi, meu nome é ${nome}!`;
     output2 = `Tenho ${idade} anos,`;
     output3 = 'trabalho na Trybe e mando muito em programação!';
     output4 = '#VQV!';
+    output5 = `${output1}\n${output2}\n${output3}\n${output4}`;
   }
-  return `${output1}\n${output2}\n${output3}\n${output4}`;
+  return output5;
 };
 
 module.exports = vqv;
