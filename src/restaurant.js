@@ -1,3 +1,4 @@
+/* eslint-disable no-tabs */
 /* eslint-disable max-len */
 
 /*
@@ -79,13 +80,21 @@
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso,
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-// PASSO 1: Crie uma função `createMenu()` que, dado um objeto passado por parâmetro, retorna um objeto com o seguinte formato: { fetchMenu: () => objetoPassadoPorParametro }.
-
-const createMenu = (obj) => ({
-  fetchMenu: () => obj,
-  consumption: [],
-  order(demand) { this.consumption.push(demand); },
-  
+const createMenu = (menu) => ({
+	fetchMenu: () => menu,
+	consumption: [],
+	order(request) {
+		this.consumption.push(request);
+	},
+	pay() {
+		let sum = 0;
+		for (let i = 0; i < this.consumption.length; i += 1) {
+			let itemPrice =
+				menu.food[this.consumption[i]] || menu.drinks[this.consumption[i]];
+			sum += itemPrice;
+		}
+		return sum * 1.1;
+	},
 });
 
 module.exports = createMenu;
