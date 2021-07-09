@@ -17,11 +17,9 @@
 */
 
 const vqv = (nome, idade) => {
-  const name = nome;
-  const age = idade;
-  if (name === undefined || age === undefined) return undefined;
-  return `Oi, meu nome é ${name}!
-Tenho ${age} anos,
+  if (!nome && !idade) return undefined;
+  return `Oi, meu nome é ${nome}!
+Tenho ${idade} anos,
 trabalho na Trybe e mando muito em programação!
 #VQV!`;
 };
