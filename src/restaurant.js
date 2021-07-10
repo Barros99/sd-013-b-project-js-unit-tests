@@ -80,7 +80,9 @@
 
 const createMenu = (menu) => {
   const restaurant = {
-    fetchMenu: () => {menu},
+    fetchMenu: () => { 
+      return menu;
+    },
     consumption: [],
     order: (pedido) => {
       restaurant.consumption.push(pedido);
@@ -100,11 +102,5 @@ const createMenu = (menu) => {
   }
   return restaurant;
 };
-let meuRestaurante = createMenu({food: { coxinha: 3.90, sanduiche: 9.90 }, drinks: { agua: 3.90, cerveja: 6.90 }});
-meuRestaurante.order('coxinha');
-meuRestaurante.order('agua');
-meuRestaurante.order('coxinha');
-console.log(meuRestaurante.pay());
-console.log(meuRestaurante.consumption);
 
 module.exports = createMenu;
