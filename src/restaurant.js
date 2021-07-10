@@ -64,7 +64,6 @@
 // - Definir o objeto que a `createMenu()` retorna, mas separadamente 
 // - E, depois, definir a função que será atribuída a `order`.
 // ```
-// const restaurant = {}
 //
 // const createMenu = (myMenu) => // Lógica que edita o objeto `restaurant`
 //
@@ -79,6 +78,39 @@
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-const createMenu = () => {};
+
+
+const createMenu = (menu) => {
+  const restaurant = {
+    fetchMenu: () => {
+      return menu
+    },
+    consumption: [],
+    order: (pedido) => {
+      restaurant.consumption.push(pedido)
+    },
+    pay: () => {
+      let total = 0
+
+      restaurant.consumption.forEach((item) => {
+        if(restaurant.fetchMenu().food[item]){
+          total += restaurant.fetchMenu().food[item]
+        } else if (restaurant.fetchMenu().drinks[item])
+          total += restaurant.fetchMenu().drinks[item]
+        
+      })
+      
+      return total * 1.1
+    },
+    
+  }
+  return  restaurant
+};
+let meuRestaurante = createMenu({food: { coxinha: 3.90, sanduiche: 9.90 }, drinks: { agua: 3.90, cerveja: 6.90 }})
+meuRestaurante.order('coxinha')
+meuRestaurante.order('agua')
+meuRestaurante.order('coxinha')
+console.log(meuRestaurante.pay())
+console.log(meuRestaurante.consumption)
 
 module.exports = createMenu;
