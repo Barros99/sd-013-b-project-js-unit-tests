@@ -80,9 +80,7 @@
 
 const createMenu = (menu) => {
   const restaurant = {
-    fetchMenu: () => { 
-      return menu;
-    },
+    fetchMenu: () => menu,
     consumption: [],
     order: (pedido) => {
       restaurant.consumption.push(pedido);
@@ -96,10 +94,10 @@ const createMenu = (menu) => {
         } else if (restaurant.fetchMenu().drinks[item]) {
           total += restaurant.fetchMenu().drinks[item];
         }
-      })
+      });
       return total * 1.1;
     },
-  }
+  };
   return restaurant;
 };
 
