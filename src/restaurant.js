@@ -94,6 +94,9 @@ const createMenu = (obj) => {
       for (let i = 0; i < consumptionOrder.food.length; i += 1) {
         value += consumptionOrder.food * consumptionOrder.length;
       }
+      for (let i = 0; i < consumptionOrder.drink.length; i += 1) {
+        value += consumptionOrder.drink * consumptionOrder.length;
+      }
       const tip = (1.1 * value);
       value += tip;
       return `O valor do pedido é de R$${value}`;

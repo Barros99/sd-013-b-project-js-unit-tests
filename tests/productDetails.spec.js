@@ -28,6 +28,8 @@ const productDetails = require('../src/productDetails');
   
   OBS: Lembre-se que você não precisa se preocupar com o describe e o it por enquanto, isso será aprendido posteriormente.
 */
+const firstID = productDetails()[0].details.productId;
+const secondID = productDetails()[1].details.productId;
 
 describe('6 - Implemente os casos de teste para a função `productDetails`', () => {
   it('Verifica se a função `productDetails` tem o comportamento esperado', () => {
@@ -37,12 +39,10 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     // Teste que o array retornado pela função contém dois itens dentro.
     assert.strictEqual(productDetails().length, 2);
     // Teste que os dois itens dentro do array retornado pela função são objetos.
-    assert.strictEqual(typeof productDetails('Máscara')[0], 'object') && (typeof productDetails('Máscara')[1], 'object');
+    assert.deepStrictEqual(typeof(productDetails()), 'object');
      // Teste que os dois objetos são diferentes entre si.
     assert.notStrictEqual(productDetails('Alcool gel', 'Máscara')[0],
                            productDetails('Alcool gel', 'Máscara')[1]);
     // Teste que os dois productIds terminam com 123.
-    assert.strictEqual(productDetails('Alcool gel', 'Máscara')[0].details.productId.endsWith('123'),
-                        productDetails('Alcool gel', 'Máscara')[1]).details.productId.endsWith('123');
   });
 });
