@@ -81,6 +81,7 @@
  
  const createMenu = (menu) => {
    const consumo = [];
+   
    return {
      consumption: consumo,
      order: (pedido) => consumo.push(pedido),
@@ -88,19 +89,17 @@
      pay: () => {
        const count = consumo.reduce((acc, cur) => {
          if (acc[cur]) {
-           acc[cur] += 1; 
-         } else {
-           acc[cur] = 1;
-         }
+           acc[cur] += 1;
+          } else {
+            acc[cur] = 1;
+          }
+         
          return acc;
-       }, {});
+    }, {});
      const price = Object.entries(count).reduce((acc, [food, quantify]) => {
-       let totalPrice = 0;
-       if (menu.food[food] === undefined) {
-         totalPrice += menu.drinks[food] * quantify;
-        } else {
-          totalPrice = menu.food[food] * quantify;
-        }
+       let totalPrice = !menu.food[food]
+       ? menu.drinks[food] * quantify
+       : menu.food[food] * quantify;
         acc += totalPrice;
         return acc;
       }, 0);
