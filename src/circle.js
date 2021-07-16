@@ -8,7 +8,7 @@
 
   Parâmetros:
     - Um número inteiro. Exemplos: 1; 3;
-  Comportamento:
+  Comportamento
     - circle(1) // Retorno: {radius: 1, area: 3.14, circumference: 6.28}
     - circle(7) // Retorno: {radius: 7, area: 153.86, circumference: 43.96}
     - circle(3) // Retorno: {radius: 3, area: 28,26, circumference: 18.84}
