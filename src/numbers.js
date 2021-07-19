@@ -20,8 +20,6 @@ const numbers = (myArray) => {
   return true;
 };
 
-assert.fail(numbers(undefined), undefined);
-
 assert.strictEqual(numbers([1, 2, 3, 4, 5]), true);
 
 assert.strictEqual(numbers([1, 2, '3', 4, 5]), false);
