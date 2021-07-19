@@ -15,6 +15,15 @@
     estudante.feedback() // Retorna: 'Eita pessoa boa!'
 */
 
-const createStudent = () => {};
+const createStudent = (name) => {
+  const students = { 
+    name,
+    // eslint-disable-next-line object-shorthand
+    feedback: function() {
+      return 'Eita pessoa boa!';
+    }
+  };
+  return students;
+};
 
 module.exports = createStudent;
