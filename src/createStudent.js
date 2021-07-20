@@ -19,9 +19,7 @@ const createStudent = (name) => {
   const students = { 
     name,
     // eslint-disable-next-line object-shorthand
-    feedback: function() {
-      return 'Eita pessoa boa!';
-    }
+    feedback: () => 'Eita pessoa boa!',
   };
   return students;
 };
