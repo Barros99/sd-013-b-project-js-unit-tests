@@ -82,6 +82,14 @@
 const createMenu = (objeto) => ({
   fetchMenu: () => objeto,
   consumption: [],
+  order(string) { this.consumption.push(string); },
+  pay() {
+   return this.consumption.reduce((acc, curr) => {
+     if (objeto.drink[curr]) acc += objeto.drink[curr] * 1.1;
+     if (objeto.food[curr]) acc += objeto.food[curr] * 1.1;
+    return acc;
+   }, 0).toFixed(2);
+  },
 });
 
 module.exports = createMenu;
